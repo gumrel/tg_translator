@@ -3,23 +3,28 @@ import FadeIn from '../UI/FadeIn';
 import BaseButton from '../UI/BaseButton';
 
 import { timelineData } from '../services/constants';
-import { useNavigate } from 'react-router-dom';
 import CustomTextArea from '../UI/CustomTextArea';
+import { useUtilsStore } from '../services/store/utilsStore';
 
 export default function Home() {
-    const navigate = useNavigate();
+    const { leftLanguage, rightLanguage, changeLanguage } = useUtilsStore();
+
     return (
         <>
             <FadeIn>
                 <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: 'easeOut' }}>
                     <div className="-mt-24">
-                        <div className="flex gap-5">
-                            <div className="mb-6 flex items-center justify-center rounded-md p-3 text-center backdrop-blur-md dark:bg-white/10">
-                                <p className="min-h-7 md:text-lg">Hello</p>
+                        <div className="flex flex-wrap items-center justify-center gap-4 sm:justify-between">
+                            <div className="mb-3 flex min-w-[120px] flex-1 items-center justify-center rounded-xl bg-[#202020] p-3 text-center">
+                                <p className="text-xl">{leftLanguage}</p>
                             </div>
 
-                            <div className="mb-6 flex items-center justify-center rounded-md p-3 text-center backdrop-blur-md dark:bg-white/10">
-                                <p className="min-h-7 md:text-lg">Moscow!</p>
+                            <div className="mb-2 cursor-pointer">
+                                <img onClick={changeLanguage} src="/images/arrow.svg" alt="" />
+                            </div>
+
+                            <div className="mb-3 flex min-w-[120px] flex-1 items-center justify-center rounded-xl bg-[#202020] p-3 text-center">
+                                <p className="text-xl">{rightLanguage}</p>
                             </div>
                         </div>
 

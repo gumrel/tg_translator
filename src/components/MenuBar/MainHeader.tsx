@@ -22,17 +22,13 @@ export default function Header() {
                         </FadeIn>
                     </div>
 
-                    <div className="flex gap-x-12">
+                    <div className="flex gap-x-4">
                         <FadeIn>
-                            <Link to="/Hackathons" className="text-lg font-bold">
-                                Hackathons
-                            </Link>
+                            <img className="cursor-pointer" src="/images/Save.svg" alt="" />
                         </FadeIn>
 
                         <FadeIn>
-                            <Link to="/Skills" className="text-lg font-bold">
-                                Skills
-                            </Link>
+                            <img className="cursor-pointer" src="/images/History.svg" alt="" />
                         </FadeIn>
                     </div>
                 </motion.nav>
