@@ -7,7 +7,7 @@ import CustomTextArea from '../UI/CustomTextArea';
 import { useUtilsStore } from '../services/store/utilsStore';
 
 export default function Home() {
-    const { leftLanguage, rightLanguage, changeLanguage } = useUtilsStore();
+    const { leftLanguage, rightLanguage, changeLanguage, setLanguageOpen } = useUtilsStore();
 
     return (
         <>
@@ -15,8 +15,11 @@ export default function Home() {
                 <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: 'easeOut' }}>
                     <div className="-mt-24">
                         <div className="flex flex-wrap items-center justify-center gap-4 sm:justify-between">
-                            <div className="mb-3 flex min-w-[120px] flex-1 items-center justify-center rounded-xl bg-[#202020] p-3 text-center">
-                                <p className="text-xl">{leftLanguage}</p>
+                            <div
+                                onClick={() => setLanguageOpen(true)}
+                                className="mb-3 flex min-w-[120px] flex-1 items-center justify-center rounded-xl bg-[#202020] p-3 text-center"
+                            >
+                                <p className="cursor-pointer text-xl">{leftLanguage}</p>
                             </div>
 
                             <div className="mb-2 cursor-pointer">
@@ -24,7 +27,7 @@ export default function Home() {
                             </div>
 
                             <div className="mb-3 flex min-w-[120px] flex-1 items-center justify-center rounded-xl bg-[#202020] p-3 text-center">
-                                <p className="text-xl">{rightLanguage}</p>
+                                <p className="cursor-pointer text-xl">{rightLanguage}</p>
                             </div>
                         </div>
 

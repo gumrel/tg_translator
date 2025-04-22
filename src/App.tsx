@@ -5,6 +5,7 @@ import Skills from './pages/Skills';
 import Contact from './pages/Contact';
 import Header from './components/MenuBar/MainHeader';
 import Footer from './components/MenuBar/Footer';
+import SavedTranslate from './pages/SavedTranslate';
 
 function AppWrapper() {
     const location = useLocation();
@@ -19,6 +20,7 @@ function AppWrapper() {
                     <Route path="/" element={<Home />} />
                     <Route path="/Library" element={<Skills />} />
                     <Route path="/Masterskaya" element={<Contact />} />
+                    <Route path="/SavedTranslate" element={<SavedTranslate />} />
                 </Routes>
             </div>
 

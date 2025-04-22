@@ -24,7 +24,9 @@ export default function Header() {
 
                     <div className="flex gap-x-4">
                         <FadeIn>
-                            <img className="cursor-pointer" src="/images/Save.svg" alt="" />
+                            <Link to="/SavedTranslate">
+                                <img className="cursor-pointer" src="/images/Save.svg" alt="" />
+                            </Link>
                         </FadeIn>
 
                         <FadeIn>
