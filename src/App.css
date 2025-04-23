@@ -11,6 +11,15 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Soyuz Grotesk';
+    src:
+        url('/fonts/Soyuz_Grotesk_Bold.otf') format('opentype'),
+        url('/fonts/SoyuzGroteskBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
 :root {
     font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
@@ -29,6 +38,11 @@ a {
 h1 {
     font-size: 3.2em;
     line-height: 1.1;
+}
+
+h2 {
+    font-family: 'Soyuz Grotesk', sans-serif;
+    font-weight: bold;
 }
 
 h3 {

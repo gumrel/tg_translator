@@ -9,7 +9,9 @@ const headerAnimation = {
     transition: { duration: 0.6, ease: 'easeOut' },
 };
 
-export default function Header() {
+export default function MainHeader() {
+    const isLibPage = location.pathname === '/Library';
+
     return (
         <header className="flex w-full justify-center">
             <div className="w-full max-w-lg">
@@ -21,18 +23,23 @@ export default function Header() {
                             </Link>
                         </FadeIn>
                     </div>
-
-                    <div className="flex gap-x-4">
-                        <FadeIn>
-                            <Link to="/SavedTranslate">
-                                <img className="cursor-pointer" src="/images/Save.svg" alt="" />
-                            </Link>
-                        </FadeIn>
-
-                        <FadeIn>
-                            <img className="cursor-pointer" src="/images/History.svg" alt="" />
-                        </FadeIn>
-                    </div>
+                    {isLibPage ? (
+                        <div className="flex gap-x-4">
+                            <FadeIn>
+                                <Link to="/HistoryTranslate">
+                                    <p className="text-[#FFFFFF80]">Библиотека</p>
+                                </Link>
+                            </FadeIn>
+                        </div>
+                    ) : (
+                        <div className="flex gap-x-4">
+                            <FadeIn>
+                                <Link to="/HistoryTranslate">
+                                    <p className="text-[#FFFFFF80]">Мастерская</p>
+                                </Link>
+                            </FadeIn>
+                        </div>
+                    )}
                 </motion.nav>
             </div>
         </header>
