@@ -1,5 +1,5 @@
 import FadeIn from '../../UI/FadeIn';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 export default function Item() {
     return (

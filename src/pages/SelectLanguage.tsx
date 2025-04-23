@@ -1,0 +1,35 @@
+import FadeIn from '../UI/FadeIn';
+import { mokLanguage } from '../services/constants';
+
+export default function SelectLanguage() {
+    return (
+        <FadeIn>
+            <div className="-mt-20">
+                <div className="flex justify-between">
+                    <p className="mb-5 text-xl font-bold">Определить язык</p>
+                    <img className="mb-4 w-7 cursor-pointer" src="/images/image.svg" alt="img" />
+                </div>
+
+                <div className="my-3 h-[1px] self-center bg-[#787878]" />
+                <p className="mt-5 mb-3 text-xl font-semibold">Все языки</p>
+
+                <div className="ml-5 flex flex-col gap-3">
+                    {mokLanguage.map((lang, index) => (
+                        <div key={index}>
+                            <p className="mb-3 cursor-pointer text-xl font-medium">{lang.name}</p>
+                            {lang.children && (
+                                <div className="ml-4 text-xl">
+                                    {lang.children.map((child, i) => (
+                                        <div className="mb-3 cursor-pointer" key={i}>
+                                            {child.name}
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </FadeIn>
+    );
+}

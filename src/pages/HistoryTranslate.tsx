@@ -11,7 +11,7 @@ export default function HistoryTranslate() {
         <FadeIn>
             <div className="-mt-20">
                 <div className="flex justify-between">
-                    <p className="mb-5 text-xl font-semibold">Очистить историю</p>
+                    <p className="mb-5 text-xl font-bold">Очистить историю</p>
                     <img className="mb-4 w-7 cursor-pointer" src="/images/Icon_Delete.svg" alt="img" />
                 </div>
 

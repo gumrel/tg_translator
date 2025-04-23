@@ -8,14 +8,17 @@ import Footer from './components/MenuBar/Footer';
 import SavedTranslate from './pages/SavedTranslate';
 import HistoryTranslate from './pages/HistoryTranslate';
 import MainHeader from './components/MenuBar/MainHeader';
+import SelectLanguage from './pages/SelectLanguage';
 
 function AppWrapper() {
     const location = useLocation();
+    const noHeaderRoutes = ['/SavedTranslate', '/HistoryTranslate', '/SelectLanguage'];
     const isHomePage = location.pathname === '/';
+    const hideHeader = noHeaderRoutes.includes(location.pathname);
 
     return (
         <>
-            {isHomePage ? <Header /> : <MainHeader />}
+            {!hideHeader && (isHomePage ? <Header /> : <MainHeader />)}
 
             <div className="mx-auto mt-20 mb-30 max-w-lg p-5">
                 <Routes>
@@ -24,6 +27,7 @@ function AppWrapper() {
                     <Route path="/Masterskaya" element={<Masterskaya />} />
                     <Route path="/SavedTranslate" element={<SavedTranslate />} />
                     <Route path="/HistoryTranslate" element={<HistoryTranslate />} />
+                    <Route path="/SelectLanguage" element={<SelectLanguage />} />
                 </Routes>
             </div>
 

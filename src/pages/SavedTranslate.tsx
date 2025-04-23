@@ -10,7 +10,7 @@ export default function SavedTranslate() {
     return (
         <FadeIn>
             <div className="-mt-20">
-                <p className="mb-5 text-xl font-semibold">Избранное</p>
+                <p className="mb-5 text-xl font-bold">Избранное</p>
 
                 <div className="my-3 h-[1px] self-center bg-[#787878]" />
                 {hasTranslate ? (

@@ -26,17 +26,17 @@ export default function MainHeader() {
                     {isLibPage ? (
                         <div className="flex gap-x-4">
                             <FadeIn>
-                                <Link to="/HistoryTranslate">
+                                <div>
                                     <p className="text-[#FFFFFF80]">Библиотека</p>
-                                </Link>
+                                </div>
                             </FadeIn>
                         </div>
                     ) : (
                         <div className="flex gap-x-4">
                             <FadeIn>
-                                <Link to="/HistoryTranslate">
+                                <div>
                                     <p className="text-[#FFFFFF80]">Мастерская</p>
-                                </Link>
+                                </div>
                             </FadeIn>
                         </div>
                     )}

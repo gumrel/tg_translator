@@ -284,3 +284,46 @@ export const mokSaved = [
         rightTranslate: 'хз как перевести',
     },
 ];
+
+export const mokLanguage = [
+    {
+        name: 'English',
+        children: [{ name: 'British Slang' }, { name: 'American Slang' }],
+    },
+    {
+        name: 'Español',
+        children: [{ name: 'Castellano' }, { name: 'Mexican Spanish' }],
+    },
+    {
+        name: 'Français',
+        children: [{ name: 'French Slang (Verlan)' }, { name: 'Canadian French' }],
+    },
+    {
+        name: 'Deutsch',
+        children: [{ name: 'Swiss German' }, { name: 'Austrian German' }],
+    },
+    {
+        name: 'Italiano',
+        children: [{ name: 'Napolitan' }, { name: 'Romanesco' }],
+    },
+    {
+        name: '中文',
+        children: [{ name: 'Mandarin' }, { name: 'Cantonese' }],
+    },
+    {
+        name: 'Português',
+        children: [{ name: 'Brazilian Portuguese' }, { name: 'European Portuguese' }],
+    },
+    {
+        name: 'العربية',
+        children: [{ name: 'Egyptian Arabic' }, { name: 'Levantine Arabic' }],
+    },
+    {
+        name: '日本語',
+        children: [{ name: 'Tokyo Dialect' }, { name: 'Kansai Dialect' }],
+    },
+    {
+        name: '한국어',
+        children: [{ name: 'Seoul Dialect' }, { name: 'Busan Dialect' }],
+    },
+];
