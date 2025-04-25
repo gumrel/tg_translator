@@ -23,7 +23,7 @@ export default function CustomTextArea() {
                     leftLanguage: leftLanguage,
                     rightLanguage: rightLanguage,
                     leftTranslate: text,
-                    rightTranslate: 'fj',
+                    rightTranslate: text.split('').reverse().join(''),
                     isLiked: false,
                 });
             }, 1500);
