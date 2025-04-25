@@ -23,6 +23,7 @@ export default function MainHeader() {
                             </Link>
                         </FadeIn>
                     </div>
+
                     {isLibPage ? (
                         <div className="flex gap-x-4">
                             <FadeIn>

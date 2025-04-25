@@ -9,12 +9,20 @@ import SavedTranslate from './pages/SavedTranslate';
 import HistoryTranslate from './pages/HistoryTranslate';
 import MainHeader from './components/MenuBar/MainHeader';
 import SelectLanguage from './pages/SelectLanguage';
+import { useHistoryStore } from './services/store/useHistoryStore';
+import { useEffect } from 'react';
 
 function AppWrapper() {
     const location = useLocation();
     const noHeaderRoutes = ['/SavedTranslate', '/HistoryTranslate', '/SelectLanguage'];
     const isHomePage = location.pathname === '/';
     const hideHeader = noHeaderRoutes.includes(location.pathname);
+
+    const loadHistoryFromStorage = useHistoryStore((state) => state.loadHistoryFromStorage);
+
+    useEffect(() => {
+        loadHistoryFromStorage();
+    }, []);
 
     return (
         <>

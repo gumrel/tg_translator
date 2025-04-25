@@ -270,18 +270,21 @@ export const mokSaved = [
         rightLanguage: 'Английский',
         leftTranslate: 'на мене изираненры ненавижу камеры целуй меня в задницу если что то не нравится',
         rightTranslate: 'ястиварн ен от отч илсе уциндаз в янем йулец ыремак уживанен ырненаризи енем ан',
+        isLiked: false,
     },
     {
         leftLanguage: 'Английский',
         rightLanguage: 'Французский',
         leftTranslate: 'что делаешь',
         rightTranslate: 'What are you doing',
+        isLiked: false,
     },
     {
         leftLanguage: 'Испанский',
         rightLanguage: 'Немецкий',
         leftTranslate: 'Скуф шеймер',
         rightTranslate: 'хз как перевести',
+        isLiked: false,
     },
 ];
 

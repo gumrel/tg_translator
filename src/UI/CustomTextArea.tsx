@@ -1,29 +1,44 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
+import { useHistoryStore } from '../services/store/useHistoryStore';
+import { useUtilsStore } from '../services/store/utilsStore';
+import { debounce } from 'lodash';
 
 export default function CustomTextArea() {
-    const [input, setInput] = useState('');
-    const [translated, setTranslated] = useState('');
+    const { wordToTranslate, setWordToTranslate, translated, setTranslated, addToHistory } = useHistoryStore();
+    const { leftLanguage, rightLanguage } = useUtilsStore();
+
     const [isLoading, setIsLoading] = useState(false);
     const [isRecording, setIsRecording] = useState(false);
+    const [copied, setCopied] = useState(false);
 
-    const handleTranslate = async (text: string) => {
-        setIsLoading(true);
-        setTranslated('');
+    const debouncedTranslate = useCallback(
+        debounce((text: string) => {
+            setIsLoading(true);
+            setTranslated('');
 
-        setTimeout(() => {
-            setTranslated(`${text.split('').reverse().join('')}`);
-            setIsLoading(false);
-        }, 1500);
-    };
+            setTimeout(() => {
+                setTranslated(`${text.split('').reverse().join('')}`);
+                setIsLoading(false);
+                addToHistory({
+                    leftLanguage: leftLanguage,
+                    rightLanguage: rightLanguage,
+                    leftTranslate: text,
+                    rightTranslate: 'fj',
+                    isLiked: false,
+                });
+            }, 1500);
+        }, 500),
+        [],
+    );
 
     const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         const value = e.target.value;
-        setInput(value);
-        handleTranslate(value);
+        setWordToTranslate(value);
+        debouncedTranslate(value);
     };
 
     const handleClear = () => {
-        setInput('');
+        setWordToTranslate('');
         setTranslated('');
     };
 
@@ -32,7 +47,8 @@ export default function CustomTextArea() {
             navigator.clipboard
                 .writeText(translated)
                 .then(() => {
-                    console.log('Скопировано!');
+                    setCopied(true);
+                    setTimeout(() => setCopied(false), 1500);
                 })
                 .catch((err) => {
                     console.error('Ошибка при копировании: ', err);
@@ -70,8 +86,8 @@ export default function CustomTextArea() {
 
         recognition.onresult = (event: any) => {
             const speechToText = event.results[0][0].transcript;
-            setInput(speechToText);
-            handleTranslate(speechToText);
+            setWordToTranslate(speechToText);
+            debouncedTranslate(speechToText);
             setIsRecording(false);
         };
 
@@ -87,14 +103,22 @@ export default function CustomTextArea() {
 
     return (
         <div className="flex flex-col gap-4 rounded-3xl bg-[#202020] p-4 backdrop-blur-md">
+            {copied && (
+                <div className="absolute top-2 left-1/2 z-50 -translate-x-1/2 rounded-xl bg-green-600 px-4 py-2 text-white shadow-lg transition-opacity duration-300">
+                    Скопировано!
+                </div>
+            )}
+
             <div className="relative">
                 <textarea
-                    value={input}
+                    value={wordToTranslate}
                     onChange={handleChange}
                     placeholder={isRecording ? 'Говорите...' : 'Введите текст...'}
                     className="min-h-[130px] w-full resize-none rounded-3xl bg-[#202020] p-4 text-xl text-black outline-none dark:text-white"
                 />
-                {!input.length ? <img onClick={handleVoiceInput} className="absolute top-4 right-4 w-7 cursor-pointer" src="/images/miniUI/mic.svg" alt="Микрофон" /> : null}
+                {!wordToTranslate.length ? (
+                    <img onClick={handleVoiceInput} className="absolute top-4 right-4 w-7 cursor-pointer" src="/images/miniUI/mic.svg" alt="Микрофон" />
+                ) : null}
             </div>
 
             <div className="my-3 h-[1px] w-[95%] self-center bg-[#787878]" />

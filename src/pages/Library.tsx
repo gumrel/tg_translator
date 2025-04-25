@@ -20,6 +20,10 @@ export default function Library() {
 
                     <div>
                         <Item />
+                        <Item />
+
+                        <Item />
+                        <Item />
                     </div>
                 </div>
             </FadeIn>
