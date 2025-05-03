@@ -6,7 +6,7 @@ export default function Item() {
     return (
         <div className="">
             <FadeIn>
-                <div className="mt-8 rounded-2xl bg-black p-5">
+                <div className="mt-8 rounded-2xl bg-[#333536] p-5">
                     <div className="flex justify-between">
                         <h2 className="mr-3 max-w-[200px] text-6xl break-all">RUSSIAN SKUF</h2>
 
