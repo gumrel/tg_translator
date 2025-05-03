@@ -4,7 +4,7 @@ import BaseButton from '../UI/BaseButton';
 import CustomTextArea from '../UI/CustomTextArea';
 import { useUtilsStore } from '../services/store/utilsStore';
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import { login } from '../api/auth/auth.api';
 
 export default function Home() {
