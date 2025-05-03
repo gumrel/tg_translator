@@ -14,8 +14,8 @@ export default function Home() {
     // useEffect(() => {
     const doLogin = async () => {
         try {
-            const initData = window.Telegram?.WebApp?.initData;
-            // const initData = '7131153888:AAE72EC_DrC2SapcZuo0uD5viC6xy8gv7cs';
+            // const initData = window.Telegram?.WebApp?.initData;
+            const initData = '7131153888:AAE72EC_DrC2SapcZuo0uD5viC6xy8gv7cs';
 
             if (!initData) {
                 console.error('хуйня невалидная');
