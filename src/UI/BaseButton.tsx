@@ -2,14 +2,16 @@ import React from 'react';
 
 interface BaseButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     children: React.ReactNode;
+    variant?: 'light' | 'dark';
 }
 
-const BaseButton: React.FC<BaseButtonProps> = ({ children, ...props }) => {
+const BaseButton: React.FC<BaseButtonProps> = ({ children, variant = 'light', className = '', ...props }) => {
+    const baseClasses = 'w-full cursor-pointer justify-center rounded-lg px-1 py-3 transition-all duration-200 ease-in-out active:scale-95';
+
+    const variantClasses = variant === 'dark' ? 'bg-[#202020] text-white' : 'bg-white text-gray-800';
+
     return (
-        <button
-            className="w-full cursor-pointer justify-center gap-2 rounded-lg bg-white px-5 py-3 transition-all duration-200 ease-in-out active:scale-95 dark:bg-white dark:text-gray-800"
-            {...props}
-        >
+        <button className={`${baseClasses} ${variantClasses} ${className}`} {...props}>
             {children}
         </button>
     );
