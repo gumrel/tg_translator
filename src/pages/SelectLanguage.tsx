@@ -21,7 +21,7 @@ export default function SelectLanguage() {
     const changeLang = (param: Translation) => {
         setSelectedLanguage(param.id);
         setRightLanguage(param);
-        navigate('/SelectLanguage');
+        navigate('/');
     };
 
     useEffect(() => {
