@@ -5,7 +5,7 @@ import CustomTextArea from '../UI/CustomTextArea';
 import { useUtilsStore } from '../services/store/utilsStore';
 import { Link } from 'react-router-dom';
 // import { useEffect } from 'react';
-import { login } from '../api/auth/auth.api';
+import { auth } from '../api/auth/auth.api';
 
 export default function Home() {
     const { leftLanguage, rightLanguage, changeLanguage, setSelectedLanguage } = useUtilsStore();
@@ -15,14 +15,13 @@ export default function Home() {
     const doLogin = async () => {
         try {
             const initData = window.Telegram?.WebApp?.initData;
-            // const initData = '7131153888:AAE72EC_DrC2SapcZuo0uD5viC6xy8gv7cs';
 
             if (!initData) {
-                console.error('хуйня невалидная');
+                console.error('невалидная');
                 return;
             }
 
-            const userData = await login({ initData });
+            const userData = await auth({ initData });
 
             console.log(userData.user);
         } catch (error) {

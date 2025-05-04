@@ -1,7 +1,22 @@
+import { useEffect } from 'react';
 import FadeIn from '../UI/FadeIn';
+import { defaultApi } from '../api/default/default.api';
 import { mokLanguage } from '../services/constants';
 
 export default function SelectLanguage() {
+    useEffect(() => {
+        const doLanguage = async () => {
+            try {
+                const userData = await defaultApi();
+                console.log(userData.user);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        doLanguage();
+    }, []);
+
     return (
         <FadeIn>
             <div className="-mt-20">
