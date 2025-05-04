@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import FadeIn from '../UI/FadeIn';
 import { defaultApi } from '../api/default/default.api';
 import { useUtilsStore } from '../services/store/utilsStore';
+import { useNavigate } from 'react-router-dom';
 
 type Translation = {
     id: number;
@@ -12,9 +13,16 @@ type Translation = {
 };
 
 export default function SelectLanguage() {
-    const { setSelectedLanguage } = useUtilsStore();
-
+    const { setSelectedLanguage, setRightLanguage } = useUtilsStore();
     const [languageList, setLanguageList] = useState<Translation[]>();
+
+    const navigate = useNavigate();
+
+    const changeLang = (param: Translation) => {
+        setSelectedLanguage(param.id);
+        setRightLanguage(param);
+        navigate('/SelectLanguage');
+    };
 
     useEffect(() => {
         const doLanguage = async () => {
@@ -43,7 +51,12 @@ export default function SelectLanguage() {
                 <div className="ml-5 flex flex-col gap-3">
                     {languageList?.map((lang, index) => (
                         <div key={index}>
-                            <p onClick={() => setSelectedLanguage(lang.id)} className="mb-3 cursor-pointer text-xl font-medium">
+                            <p
+                                onClick={() => {
+                                    changeLang(lang);
+                                }}
+                                className="mb-3 cursor-pointer text-xl font-medium"
+                            >
                                 {lang.name}
                             </p>
                             {/* {lang.children && (
