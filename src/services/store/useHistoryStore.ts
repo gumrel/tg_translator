@@ -2,7 +2,7 @@ import { create } from 'zustand';
 
 type TranslationEntry = {
     leftLanguage: string;
-    rightLanguage: string;
+    rightLanguage: any;
     leftTranslate: string;
     rightTranslate: string;
     isLiked: boolean;

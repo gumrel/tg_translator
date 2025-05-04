@@ -21,7 +21,7 @@ export default function CustomTextArea() {
                 setIsLoading(false);
                 addToHistory({
                     leftLanguage: leftLanguage,
-                    rightLanguage: rightLanguage,
+                    rightLanguage: rightLanguage.name,
                     leftTranslate: text,
                     rightTranslate: text.split('').reverse().join(''),
                     isLiked: false,
