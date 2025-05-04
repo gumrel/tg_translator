@@ -1,26 +1,34 @@
 import { create } from 'zustand';
 
+type Translation = {
+    id: number;
+    name: string;
+    description: string;
+    languageCode: string;
+    isByUser: boolean;
+};
+
 type AppState = {
     selectedLanguage: number | null;
     setSelectedLanguage: (value: number) => void;
 
     leftLanguage: string;
-    rightLanguage: string;
-    changeLanguage: () => void;
+    rightLanguage: Translation;
+    setRightLanguage: (lang: Translation) => void;
 };
 
-export const useUtilsStore = create<AppState>((set, get) => ({
+export const useUtilsStore = create<AppState>((set) => ({
     leftLanguage: 'Русский',
-    rightLanguage: 'Английский',
-    selectedLanguage: null,
+    rightLanguage: {
+        id: 1,
+        name: 'skuf1',
+        description: 'skuf slang',
+        languageCode: 'ru',
+        isByUser: false,
+    },
+    selectedLanguage: 1,
 
     setSelectedLanguage: (value) => set({ selectedLanguage: value }),
 
-    changeLanguage: () => {
-        const { leftLanguage, rightLanguage } = get();
-        set({
-            leftLanguage: rightLanguage,
-            rightLanguage: leftLanguage,
-        });
-    },
+    setRightLanguage: (lang) => set({ rightLanguage: lang }),
 }));

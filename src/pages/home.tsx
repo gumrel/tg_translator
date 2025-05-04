@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import { auth } from '../api/auth/auth.api';
 
 export default function Home() {
-    const { leftLanguage, rightLanguage, changeLanguage, setSelectedLanguage } = useUtilsStore();
+    const { leftLanguage, rightLanguage, setSelectedLanguage } = useUtilsStore();
 
     // const AuthInit = () => {
     // useEffect(() => {
@@ -40,30 +40,29 @@ export default function Home() {
             <FadeIn>
                 <div className="-mt-24">
                     <div className="flex flex-wrap items-center justify-center gap-4 sm:justify-between">
-                        <Link
-                            to="/SelectLanguage"
-                            onClick={() => {
-                                setSelectedLanguage(-1);
-                                console.log('-1');
-                            }}
+                        <div
+                            // to="/SelectLanguage"
+                            // onClick={() => {
+                            //     setSelectedLanguage(-1);
+                            // }}
                             className="mb-3 flex min-w-[120px] flex-1 cursor-pointer items-center justify-center rounded-xl bg-[#202020] p-3 text-center text-xl"
                         >
                             <p>{leftLanguage}</p>
-                        </Link>
+                        </div>
 
                         <div className="mb-2 cursor-pointer">
-                            <img onClick={changeLanguage} src="/images/arrow.svg" alt="" />
+                            {/* <img onClick={changeLanguage} src="/images/arrow.svg" alt="" /> */}
+                            <img className="w-7" src="/images/arrow-right.svg" alt="arrow" />
                         </div>
 
                         <Link
                             to="/SelectLanguage"
                             onClick={() => {
                                 setSelectedLanguage(1);
-                                console.log('1');
                             }}
                             className="mb-3 flex min-w-[120px] flex-1 cursor-pointer items-center justify-center rounded-xl bg-[#202020] p-3 text-center text-xl"
                         >
-                            <p>{rightLanguage}</p>
+                            <p>{rightLanguage.name}</p>
                         </Link>
                     </div>
 
