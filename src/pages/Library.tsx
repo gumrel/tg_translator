@@ -14,7 +14,7 @@ export default function Library() {
                         <div className="flex-grow cursor-pointer rounded-3xl bg-[#171717] px-16 py-3 text-center sm:w-auto">Стандартные</div>
 
                         <Link className="flex-grow cursor-pointer rounded-3xl bg-[#171717] px-16 py-3 text-center sm:w-auto" to="/Masterskaya">
-                            <p>Мастерская</p>
+                            <p>Пользовательские</p>
                         </Link>
                     </div>
 

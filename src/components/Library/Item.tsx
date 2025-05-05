@@ -12,10 +12,10 @@ export default function Item({ item }: ItemProps) {
             <FadeIn>
                 <div className="mt-8 rounded-2xl bg-[#000000] p-5 text-white">
                     <div className="flex justify-between">
-                        <h2 className="mr-3 max-w-[200px] text-6xl break-all">RUSSIAN SKUF</h2>
+                        <h2 className="mr-3 max-w-[200px] break-all">RUSSIAN SKUF</h2>
 
                         <div className="shrink-0">
-                            <img src={`/images/skuf/skuf${item}.png`} alt="" className="w-26 object-contain" />
+                            <img src={`/images/skuf/skuf${item}.png`} alt="" className="w-23 object-contain" />
                         </div>
                     </div>
 

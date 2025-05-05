@@ -21,7 +21,7 @@ export const useUtilsStore = create<AppState>((set) => ({
     leftLanguage: 'Русский',
     rightLanguage: {
         id: 1,
-        name: 'skuf1',
+        name: 'skuf',
         description: 'skuf slang',
         languageCode: 'ru',
         isByUser: false,

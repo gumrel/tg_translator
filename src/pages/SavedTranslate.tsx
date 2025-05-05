@@ -1,11 +1,32 @@
 import FadeIn from '../UI/FadeIn';
-
-import { mokSaved } from '../services/constants';
 import Empty from '../components/Empty/Empty';
 import TranslateItem from '../components/GridMenu/TranslateItem';
+import { getTranslation } from '../api/translation/translation.api';
+import { useEffect, useState } from 'react';
+
+type Translation = {
+    languageId: number;
+    srcText: string;
+    translationText: string;
+    userId: number;
+};
 
 export default function SavedTranslate() {
-    const hasTranslate = Array.isArray(mokSaved) && mokSaved.length > 0;
+    const [translations, setTranslations] = useState<Translation[]>([]);
+    const hasTranslate = translations.length > 0;
+
+    useEffect(() => {
+        const fetchTranslations = async () => {
+            try {
+                const data = await getTranslation();
+                setTranslations(data.items);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchTranslations();
+    }, []);
 
     return (
         <FadeIn>
@@ -13,15 +34,16 @@ export default function SavedTranslate() {
                 <p className="mb-5 text-xl font-bold">Избранное</p>
 
                 <div className="my-3 h-[1px] self-center bg-[#787878]" />
+
                 {hasTranslate ? (
                     <>
-                        {mokSaved.map((item, index) => (
+                        {translations.map((item, index) => (
                             <TranslateItem
                                 key={index}
-                                leftLanguage={item.leftLanguage}
-                                rightLanguage={item.rightLanguage}
-                                leftTranslate={item.leftTranslate}
-                                rightTranslate={item.rightTranslate}
+                                leftLanguage={'Русский'}
+                                rightLanguage={`${item.languageId}`}
+                                leftTranslate={item.srcText}
+                                rightTranslate={item.translationText}
                             />
                         ))}
                     </>

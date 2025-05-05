@@ -3,7 +3,6 @@ import FadeIn from '../UI/FadeIn';
 import Empty from '../components/Empty/Empty';
 import TranslateItem from '../components/GridMenu/TranslateItem';
 import { useHistoryStore } from '../services/store/useHistoryStore';
-import { getTranslation } from '../api/translation/translation.api';
 
 export default function HistoryTranslate() {
     const { clearHistory, history, loadHistoryFromStorage } = useHistoryStore();
@@ -17,19 +16,6 @@ export default function HistoryTranslate() {
     useEffect(() => {
         setHasTranslate(Array.isArray(history) && history.length > 0);
     }, [history]);
-
-    useEffect(() => {
-        const doLanguage = async () => {
-            try {
-                const userData = await getTranslation();
-                console.log(userData.user);
-            } catch (error) {
-                console.error(error);
-            }
-        };
-
-        doLanguage();
-    }, []);
 
     return (
         <FadeIn>

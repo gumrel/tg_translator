@@ -3,6 +3,7 @@ import FadeIn from '../UI/FadeIn';
 import { defaultApi } from '../api/default/default.api';
 import { useUtilsStore } from '../services/store/utilsStore';
 import { useNavigate } from 'react-router-dom';
+import { useHistoryStore } from '../services/store/useHistoryStore';
 
 type Translation = {
     id: number;
@@ -14,11 +15,14 @@ type Translation = {
 
 export default function SelectLanguage() {
     const { setSelectedLanguage, setRightLanguage } = useUtilsStore();
+    const { setWordToTranslate, setTranslated } = useHistoryStore();
     const [languageList, setLanguageList] = useState<Translation[]>();
 
     const navigate = useNavigate();
 
     const changeLang = (param: Translation) => {
+        setWordToTranslate('');
+        setTranslated('');
         setSelectedLanguage(param.id);
         setRightLanguage(param);
         navigate('/');

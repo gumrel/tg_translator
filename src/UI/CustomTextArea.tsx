@@ -2,6 +2,8 @@ import { useCallback, useState } from 'react';
 import { useHistoryStore } from '../services/store/useHistoryStore';
 import { useUtilsStore } from '../services/store/utilsStore';
 import { debounce } from 'lodash';
+import { makeTransation } from '../api/default/default.api';
+import { saveTransation } from '../api/translation/translation.api';
 
 export default function CustomTextArea() {
     const { wordToTranslate, setWordToTranslate, translated, setTranslated, addToHistory } = useHistoryStore();
@@ -16,20 +18,38 @@ export default function CustomTextArea() {
             setIsLoading(true);
             setTranslated('');
 
-            setTimeout(() => {
-                setTranslated(`${text.split('').reverse().join('')}`);
-                setIsLoading(false);
-                addToHistory({
-                    leftLanguage: leftLanguage,
-                    rightLanguage: rightLanguage.name,
-                    leftTranslate: text,
-                    rightTranslate: text.split('').reverse().join(''),
-                    isLiked: false,
-                });
+            setTimeout(async () => {
+                try {
+                    const response = await makeTransation({ languageId: rightLanguage.id, text });
+                    const translatedText = response.translatedText;
+
+                    setTranslated(translatedText);
+
+                    addToHistory({
+                        leftLanguage: leftLanguage,
+                        rightLanguage: rightLanguage.name,
+                        leftTranslate: text,
+                        rightTranslate: translatedText,
+                        isLiked: false,
+                    });
+                } catch (error) {
+                    console.error('Ошибка перевода:', error);
+                } finally {
+                    setIsLoading(false);
+                }
             }, 1500);
         }, 500),
-        [],
+        [rightLanguage.id, leftLanguage, rightLanguage.name],
     );
+
+    const likeTranslate = () => {
+        saveTransation({
+            languageId: 1,
+            srcText: 'string',
+            translationText: 'string',
+            userId: 880035495,
+        });
+    };
 
     const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         const value = e.target.value;
@@ -130,7 +150,7 @@ export default function CustomTextArea() {
             <div className="mb-2 flex justify-between px-3">
                 <div className="wrap flex gap-3">
                     <img onClick={() => handleCopy()} className="w-7 cursor-pointer" src="/images/miniUI/Copy.svg" alt="img" />
-                    <img className="w-7 cursor-pointer" src="/images/miniUI/Like.svg" alt="img" />
+                    <img onClick={() => likeTranslate()} className="w-7 cursor-pointer" src="/images/miniUI/Like.svg" alt="img" />
                     <img onClick={() => handleSpeak()} className="w-7 cursor-pointer" src="/images/miniUI/Sound.svg" alt="img" />
                 </div>
                 <img onClick={() => handleClear()} className="w-7 cursor-pointer" src="/images/miniUI/Delete.svg" alt="img" />
