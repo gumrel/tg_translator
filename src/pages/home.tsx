@@ -69,7 +69,7 @@ export default function Home() {
                     <CustomTextArea />
 
                     <div className="mt-5">
-                        <BaseButton onClick={doLogin}>Перевод</BaseButton>
+                        <BaseButton onClick={doLogin}>Перевод: {rightLanguage.description}</BaseButton>
                     </div>
                 </div>
             </FadeIn>

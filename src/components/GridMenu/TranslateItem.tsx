@@ -1,11 +1,25 @@
+import { deleteTransation } from '../../api/translation/translation.api';
+
 type SavedProp = {
+    id: number;
     leftLanguage: string;
     rightLanguage: string;
     leftTranslate: string;
     rightTranslate: string;
+    isLike: boolean;
+    onDelete: () => void;
 };
 
 export default function TranslateItem(props: SavedProp) {
+    const deleteItem = async () => {
+        try {
+            await deleteTransation(props.id);
+            props.onDelete();
+        } catch (err) {
+            console.error(err);
+        }
+    };
+
     return (
         <div className="mt-5 mb-6">
             <div className="relative flex items-center justify-between text-xl font-light">
@@ -17,7 +31,7 @@ export default function TranslateItem(props: SavedProp) {
 
                 <div className="flex w-1/3 items-center justify-end gap-3">
                     <p className="truncate">{props.rightLanguage}</p>
-                    <img className="w-5 cursor-pointer" src="/images/Save.svg" alt="save" />
+                    {props.isLike ? <img onClick={deleteItem} className="w-5 cursor-pointer" src="/images/Save.svg" alt="save" /> : null}
                 </div>
             </div>
 

@@ -12,9 +12,11 @@ export default function CustomTextArea() {
     const [isLoading, setIsLoading] = useState(false);
     const [isRecording, setIsRecording] = useState(false);
     const [copied, setCopied] = useState(false);
+    const [isLiked, setIsLiked] = useState(false);
 
     const debouncedTranslate = useCallback(
         debounce((text: string) => {
+            setIsLiked(false);
             setIsLoading(true);
             setTranslated('');
 
@@ -44,11 +46,11 @@ export default function CustomTextArea() {
 
     const likeTranslate = () => {
         saveTransation({
-            languageId: 1,
-            srcText: 'string',
-            translationText: 'string',
-            userId: 880035495,
+            languageId: rightLanguage.id,
+            srcText: wordToTranslate,
+            translationText: translated,
         });
+        setIsLiked(true);
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -58,6 +60,7 @@ export default function CustomTextArea() {
     };
 
     const handleClear = () => {
+        setIsLiked(false);
         setWordToTranslate('');
         setTranslated('');
     };
@@ -150,7 +153,12 @@ export default function CustomTextArea() {
             <div className="mb-2 flex justify-between px-3">
                 <div className="wrap flex gap-3">
                     <img onClick={() => handleCopy()} className="w-7 cursor-pointer" src="/images/miniUI/Copy.svg" alt="img" />
-                    <img onClick={() => likeTranslate()} className="w-7 cursor-pointer" src="/images/miniUI/Like.svg" alt="img" />
+                    {!isLiked ? (
+                        <img onClick={() => likeTranslate()} className="w-7 cursor-pointer" src="/images/miniUI/Like.svg" alt="img" />
+                    ) : (
+                        <img src="/images/Save.svg" alt="" />
+                    )}
+
                     <img onClick={() => handleSpeak()} className="w-7 cursor-pointer" src="/images/miniUI/Sound.svg" alt="img" />
                 </div>
                 <img onClick={() => handleClear()} className="w-7 cursor-pointer" src="/images/miniUI/Delete.svg" alt="img" />

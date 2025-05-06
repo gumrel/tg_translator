@@ -5,8 +5,10 @@ import { getTranslation } from '../api/translation/translation.api';
 import { useEffect, useState } from 'react';
 
 type Translation = {
+    id: number;
     languageId: number;
     srcText: string;
+    languageName: string;
     translationText: string;
     userId: number;
 };
@@ -19,7 +21,7 @@ export default function SavedTranslate() {
         const fetchTranslations = async () => {
             try {
                 const data = await getTranslation();
-                setTranslations(data.items);
+                setTranslations(data.items || []);
             } catch (error) {
                 console.error(error);
             }
@@ -36,17 +38,22 @@ export default function SavedTranslate() {
                 <div className="my-3 h-[1px] self-center bg-[#787878]" />
 
                 {hasTranslate ? (
-                    <>
+                    <div>
                         {translations.map((item, index) => (
                             <TranslateItem
                                 key={index}
+                                id={item.id}
                                 leftLanguage={'Русский'}
-                                rightLanguage={`${item.languageId}`}
+                                rightLanguage={`${item.languageName}`}
                                 leftTranslate={item.srcText}
                                 rightTranslate={item.translationText}
+                                isLike={true}
+                                onDelete={() => {
+                                    setTranslations((prev) => prev.filter((i) => i.id !== item.id));
+                                }}
                             />
                         ))}
-                    </>
+                    </div>
                 ) : (
                     <Empty />
                 )}
