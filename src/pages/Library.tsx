@@ -7,13 +7,13 @@ export default function Library() {
     return (
         <div className="-mt-30">
             <FadeIn>
-                <div className="mt-8">
+                <div className="mt-6">
                     <BaseInput />
 
                     <div className="mt-3 flex gap-5">
-                        <div className="flex-1 cursor-pointer rounded-3xl bg-[#171717] py-3 text-center text-xs">Стандартные</div>
+                        <div className="flex-1 cursor-pointer rounded-3xl bg-[#171717] py-2.5 text-center text-xs">Стандартные</div>
 
-                        <Link className="flex flex-1 cursor-pointer items-center justify-center rounded-3xl bg-[#171717] py-3 text-center text-xs" to="/Masterskaya">
+                        <Link className="flex flex-1 cursor-pointer items-center justify-center rounded-3xl bg-[#171717] py-2.5 text-center text-xs" to="/Masterskaya">
                             Пользовательские
                         </Link>
                     </div>
