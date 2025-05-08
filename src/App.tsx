@@ -11,6 +11,7 @@ import MainHeader from './components/MenuBar/MainHeader';
 import SelectLanguage from './pages/SelectLanguage';
 import { useHistoryStore } from './services/store/useHistoryStore';
 import { useEffect } from 'react';
+import { auth } from './api/auth/auth.api';
 
 function AppWrapper() {
     const location = useLocation();
@@ -19,6 +20,26 @@ function AppWrapper() {
     const hideHeader = noHeaderRoutes.includes(location.pathname);
 
     const loadHistoryFromStorage = useHistoryStore((state) => state.loadHistoryFromStorage);
+
+    useEffect(() => {
+        const doLogin = async () => {
+            try {
+                const initData = window.Telegram?.WebApp?.initData;
+
+                if (!initData) {
+                    console.error('tg mini app only');
+                    return;
+                }
+
+                const userData = await auth({ initData });
+
+                console.log(userData.user);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+        doLogin();
+    }, []);
 
     useEffect(() => {
         loadHistoryFromStorage();

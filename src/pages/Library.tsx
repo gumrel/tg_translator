@@ -10,11 +10,11 @@ export default function Library() {
                 <div className="mt-8">
                     <BaseInput />
 
-                    <div className="mt-5 flex flex-wrap justify-between gap-5">
-                        <div className="flex-grow cursor-pointer rounded-3xl bg-[#171717] px-16 py-3 text-center sm:w-auto">Стандартные</div>
+                    <div className="mt-3 flex gap-5">
+                        <div className="flex-1 cursor-pointer rounded-3xl bg-[#171717] py-3 text-center text-xs">Стандартные</div>
 
-                        <Link className="flex-grow cursor-pointer rounded-3xl bg-[#171717] px-16 py-3 text-center sm:w-auto" to="/Masterskaya">
-                            <p>Пользовательские</p>
+                        <Link className="flex flex-1 cursor-pointer items-center justify-center rounded-3xl bg-[#171717] py-3 text-center text-xs" to="/Masterskaya">
+                            Пользовательские
                         </Link>
                     </div>
 

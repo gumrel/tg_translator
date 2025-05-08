@@ -1,17 +1,19 @@
 import { deleteTransation } from '../../api/translation/translation.api';
 
 type SavedProp = {
-    id: number;
+    id?: number;
     leftLanguage: string;
     rightLanguage: string;
     leftTranslate: string;
     rightTranslate: string;
-    isLike: boolean;
-    onDelete: () => void;
+    isLike?: boolean;
+    onDelete?: () => void;
 };
 
 export default function TranslateItem(props: SavedProp) {
     const deleteItem = async () => {
+        if (!props.id || !props.onDelete) return;
+
         try {
             await deleteTransation(props.id);
             props.onDelete();

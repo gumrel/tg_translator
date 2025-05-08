@@ -14,7 +14,7 @@ export default function CustomInput() {
                 value={input}
                 onChange={handleChange}
                 placeholder="Введите текст..."
-                className="w-full rounded-3xl bg-[#202020] p-4 pr-12 text-xl text-black outline-none dark:text-white"
+                className="w-full rounded-3xl bg-[#202020] p-4 pr-12 text-sm text-black outline-none dark:text-white"
             />
 
             <div className="absolute top-1/2 right-4 -translate-y-1/2 transform">

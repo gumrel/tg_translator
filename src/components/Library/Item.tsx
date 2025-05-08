@@ -8,9 +8,9 @@ type ItemProps = {
 
 export default function Item({ item }: ItemProps) {
     return (
-        <div className="">
+        <div>
             <FadeIn>
-                <div className="mt-8 rounded-2xl bg-[#000000] p-5 text-white">
+                <div className="mt-6 rounded-2xl bg-[#000000] p-5 text-white">
                     <div className="flex justify-between">
                         <h2 className="mr-3 max-w-[200px] break-all">RUSSIAN SKUF</h2>
 
@@ -19,9 +19,9 @@ export default function Item({ item }: ItemProps) {
                         </div>
                     </div>
 
-                    <p className="mt-3 max-w-[300px] font-sans text-sm font-extralight">Язык настоящих мужчин, ценителей светлого нефильтрованного и фырчания на ежа.</p>
+                    <p className="mt-3 max-w-[270px] font-sans text-xs font-extralight">Язык настоящих мужчин, ценителей светлого нефильтрованного и фырчания на ежа.</p>
 
-                    <p className="mt-3 font-sans text-sm font-extralight">Вдохновлено: SKUFENG</p>
+                    <p className="mt-3 font-sans text-xs font-extralight">Вдохновлено: SKUFENG</p>
 
                     <div className="mt-6 flex gap-4">
                         <BaseButton>Попробовать</BaseButton>
