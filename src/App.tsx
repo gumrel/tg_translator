@@ -49,7 +49,7 @@ function AppWrapper() {
         <>
             {!hideHeader && (isHomePage ? <Header /> : <MainHeader />)}
 
-            <div className="mx-auto mt-20 mb-30 max-w-lg p-5">
+            <div className="mx-auto mt-20 mb-30 p-5" style={{ maxWidth: '930px' }}>
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/Library" element={<Library />} />
