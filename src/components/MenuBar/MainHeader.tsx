@@ -28,7 +28,7 @@ export default function MainHeader() {
                         <div className="flex gap-x-4">
                             <FadeIn>
                                 <div>
-                                    <p className="text-[#FFFFFF80]">Библиотека</p>
+                                    <p className="text-[18px] text-[#FFFFFF80]">Библиотека</p>
                                 </div>
                             </FadeIn>
                         </div>

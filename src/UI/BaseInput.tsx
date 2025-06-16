@@ -13,8 +13,8 @@ export default function CustomInput() {
                 type="text"
                 value={input}
                 onChange={handleChange}
-                placeholder="Введите текст..."
-                className="w-full rounded-3xl bg-[#202020] p-4 pr-12 text-sm text-black outline-none dark:text-white"
+                // placeholder="Введите текст..."
+                className="h-[45px] w-full rounded-3xl bg-[#202020] p-4 pr-12 text-sm text-black outline-none dark:text-white"
             />
 
             <div className="absolute top-1/2 right-4 -translate-y-1/2 transform">

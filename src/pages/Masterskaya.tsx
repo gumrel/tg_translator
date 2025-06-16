@@ -1,5 +1,4 @@
 import FadeIn from '../UI/FadeIn';
-import BaseButton from '../UI/BaseButton';
 
 export default function Masterskaya() {
     const icons = [

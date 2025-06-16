@@ -34,7 +34,7 @@
 
     color-scheme: light dark;
     color: rgba(255, 255, 255, 0.87);
-    background-color: #111111;
+    background-color: #0c0c0c;
 }
 
 a {
@@ -61,7 +61,7 @@ h3 {
 
 @media (prefers-color-scheme: light) {
     :root {
-        color: #213547;
+        color: #fff;
         background-color: #ffffff;
     }
     a:hover {
