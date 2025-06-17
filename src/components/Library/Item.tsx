@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import FadeIn from '../../UI/FadeIn';
 
 type ItemProps = {
@@ -6,10 +7,16 @@ type ItemProps = {
 };
 
 export default function Item({ imgName, naming }: ItemProps) {
+    const navigate = useNavigate();
+
+    const goTo = () => {
+        navigate(`/Library/StandartInfo/${imgName}`);
+    };
+
     return (
         <div>
             <FadeIn>
-                <div className="relative flex min-h-[190px] w-full cursor-pointer flex-col overflow-hidden rounded-2xl bg-black p-5 text-white md:flex-row">
+                <div onClick={goTo} className="relative flex min-h-[190px] w-full cursor-pointer flex-col overflow-hidden rounded-2xl bg-black p-5 text-white md:flex-row">
                     <div className="pointer-events-none absolute top-1/3 right-0 z-0 mt-3 mr-3 -translate-y-1/2">
                         <video autoPlay loop muted playsInline style={{ width: '128px', height: 'auto' }}>
                             <source src={`/model/${imgName}.webm`} type="video/webm" />
