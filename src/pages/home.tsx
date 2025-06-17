@@ -45,40 +45,6 @@ export default function Home() {
                         <BaseButton>Перевод: {rightLanguage.description}</BaseButton>
                     </div>
                 </div>
-                <div style={{ maxWidth: '300px', margin: '0 auto' }}>
-                    <video autoPlay loop muted playsInline style={{ width: '100%', height: 'auto' }}>
-                        <source src="/model/Skuf.webm" type="video/webm" />
-                        Ваш браузер не поддерживает WebM.
-                    </video>
-                </div>
-
-                <div style={{ maxWidth: '300px', margin: '0 auto' }}>
-                    <video autoPlay loop muted playsInline style={{ width: '100%', height: 'auto' }}>
-                        <source src="/model/Zumer1.webm" type="video/webm" />
-                        Ваш браузер не поддерживает WebM.
-                    </video>
-                </div>
-
-                <div style={{ maxWidth: '300px', margin: '0 auto' }}>
-                    <video autoPlay loop muted playsInline style={{ width: '100%', height: 'auto' }}>
-                        <source src="/model/Zumer.webm" type="video/webm" />
-                        Ваш браузер не поддерживает WebM.
-                    </video>
-                </div>
-
-                <div style={{ maxWidth: '300px', margin: '0 auto' }}>
-                    <video autoPlay loop muted playsInline style={{ width: '100%', height: 'auto' }}>
-                        <source src="/model/Gopnik.webm" type="video/webm" />
-                        Ваш браузер не поддерживает WebM.
-                    </video>
-                </div>
-
-                <div style={{ maxWidth: '300px', margin: '0 auto' }}>
-                    <video autoPlay loop muted playsInline style={{ width: '100%', height: 'auto' }}>
-                        <source src="/model/Elite.webm" type="video/webm" />
-                        Ваш браузер не поддерживает WebM.
-                    </video>
-                </div>
             </FadeIn>
         </>
     );

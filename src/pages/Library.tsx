@@ -7,8 +7,8 @@ export default function Library() {
     const icons = [
         { imgName: 'Skuf', label: 'Русский скуф' },
         { imgName: 'Elite', label: 'Аристократ' },
-        { imgName: 'Gopnik', label: 'Гопник' },
-        { imgName: 'Zumer1', label: 'Зумер' },
+        { imgName: 'Gopnik', label: 'Русский Гопник' },
+        { imgName: 'Zumer1', label: 'Русский Зумер' },
         { imgName: 'Zumer', label: 'HOOD' },
     ];
 
@@ -18,25 +18,20 @@ export default function Library() {
                 <div className="mt-6">
                     <BaseInput />
 
-                    <div className="mt-3 flex flex-wrap gap-3">
-                        <div className="font-helvetica flex h-[35px] w-[168px] flex-shrink-0 items-center justify-center gap-[10px] rounded-[31px] bg-[#171717] px-[15px] py-[15px] text-center text-xs text-[12px] leading-[100%] font-normal tracking-[-0.12px] text-white">
-                            Стандартные
-                        </div>
-                        <div className="font-helvetica flex h-[35px] w-[168px] flex-shrink-0 items-center justify-center gap-[10px] rounded-[31px] bg-[#171717] px-[15px] py-[15px] text-center text-xs text-[12px] leading-[100%] font-normal tracking-[-0.12px] text-white">
-                            Мастерская
-                        </div>
-                        <div className="font-helvetica flex h-[35px] w-[168px] flex-shrink-0 items-center justify-center gap-[10px] rounded-[31px] bg-[#171717] px-[15px] py-[15px] text-center text-xs text-[12px] leading-[100%] font-normal tracking-[-0.12px] text-white">
-                            Избранное
-                        </div>
-                        <div className="font-helvetica flex h-[35px] w-[168px] flex-shrink-0 items-center justify-center gap-[10px] rounded-[31px] bg-[#171717] px-[15px] py-[15px] text-center text-xs text-[12px] leading-[100%] font-normal tracking-[-0.12px] text-white">
-                            В тренде
-                        </div>
-                        <div className="font-helvetica flex h-[35px] w-[168px] flex-shrink-0 items-center justify-center gap-[10px] rounded-[31px] bg-[#171717] px-[15px] py-[15px] text-center text-xs text-[12px] leading-[100%] font-normal tracking-[-0.12px] text-white">
-                            Новые
+                    <div className="mt-3 overflow-x-auto">
+                        <div className="flex flex-nowrap gap-3 pb-1" style={{ scrollbarWidth: 'none' }}>
+                            {['Стандартные', 'Мастерская', 'Избранное', 'В тренде', 'Новые'].map((label, i) => (
+                                <div
+                                    key={i}
+                                    className="font-helvetica flex h-[34px] w-[132px] flex-shrink-0 cursor-pointer items-center justify-center gap-[10px] rounded-[31px] bg-[#171717] px-[15px] py-[15px] text-center text-[12px] leading-[100%] font-normal tracking-[-0.12px] text-white sm:h-[35px] sm:w-[168px]"
+                                >
+                                    {label}
+                                </div>
+                            ))}
                         </div>
                     </div>
 
-                    <div className="mt-5 flex flex-wrap gap-5">
+                    <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-1 md:grid-cols-2">
                         {icons.map((item, index) => (
                             <Item key={index} imgName={item.imgName} naming={item.label} />
                         ))}
