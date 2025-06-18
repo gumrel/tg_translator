@@ -27,6 +27,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Teletactile';
+    src: url('/fonts/Teletactile.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
 :root {
     font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;

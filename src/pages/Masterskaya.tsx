@@ -32,14 +32,18 @@ export default function Masterskaya() {
                         </div>
                     </div>
 
-                    <div className="flex max-h-[380px] w-full overflow-hidden rounded-[19px] bg-[#1C1C1E] p-[18px] lg:max-h-[130px]">
+                    <div className="flex max-h-[380px] w-full cursor-pointer overflow-hidden rounded-[19px] bg-[#1C1C1E] p-[18px] lg:max-h-[130px]">
                         <div className="flex w-full items-center justify-between gap-4">
                             <div className="w-full max-w-[225px]">
                                 <p className="font-helvetica text-[22px] font-bold text-white">Создай свой язык</p>
                                 <p className="font-helvetica text-[14px] font-normal text-[#9F9F9F]">Да, вот так просто, единственное ограничение — это твоя фантазия</p>
                             </div>
                             <div className="shrink-0 overflow-hidden">
-                                <img src="/images/masterskaya/ng.svg" alt="" className="h-[90px] object-cover md:h-[93px]" />
+                                {/* <img src="/images/masterskaya/ng.svg" alt="" className="h-[90px] object-cover md:h-[93px]" /> */}
+                                <video autoPlay loop muted playsInline className="h-auto w-[100px]">
+                                    <source src={`/model/Zumer.webm`} type="video/webm" />
+                                    Ваш браузер не поддерживает WebM.
+                                </video>
                             </div>
                         </div>
                     </div>

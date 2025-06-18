@@ -39,7 +39,7 @@ export default function StandartInfo() {
                 </div>
 
                 <div className="relative mt-8 flex flex-col items-center">
-                    <div className="relative z-10 w-full max-w-[231px]">
+                    <div className="relative z-5 w-full max-w-[231px]" style={{ transform: 'translateY(-10px)' }}>
                         <video autoPlay loop muted playsInline className="h-auto w-full">
                             <source src={`/model/${currentLang?.imgName}.webm`} type="video/webm" />
                             Ваш браузер не поддерживает WebM.
@@ -48,7 +48,6 @@ export default function StandartInfo() {
 
                     {currentLang && (
                         <div className="absolute top-0 right-0 left-0 z-0 flex h-full w-full flex-col justify-center">
-                            {/* Первая строка (влево) */}
                             <div className="marquee-container">
                                 <div className="marquee-content">
                                     {[...Array(12)].map((_, i) => (
@@ -59,8 +58,7 @@ export default function StandartInfo() {
                                 </div>
                             </div>
 
-                            {/* Вторая строка (вправо) */}
-                            <div className="marquee-container mt-2">
+                            <div className="marquee-container mt--10">
                                 <div className="marquee-content-right">
                                     {[...Array(12)].map((_, i) => (
                                         <span key={`right-${i}`} className="marquee-item">
@@ -71,6 +69,31 @@ export default function StandartInfo() {
                             </div>
                         </div>
                     )}
+                </div>
+
+                <div>
+                    <div className="wrap flex">
+                        <p className="font-helvetica mr-[57px] text-sm leading-[14px] font-light whitespace-nowrap text-white">/о языке</p>
+                        <p className="text-xl leading-[20px] font-normal text-white" style={{ fontFamily: 'Teletactile, sans-serif' }}>
+                            Язык, соединивший в себе все относительно популярные сленговые слова и фразочки! Язык, соединивший в себе все относительно популярные Язык, соединивший
+                            в себе все относительно
+                        </p>
+                    </div>
+
+                    <div className="wrap mt-8 flex">
+                        <p className="font-helvetica mr-[57px] text-sm leading-[14px] font-light whitespace-nowrap text-white">/словарь</p>
+                        <p className="text-xl text-[35px] leading-[20px] font-normal text-white" style={{ fontFamily: 'Teletactile, sans-serif' }}>
+                            <label className="font-teletactile text-[57px] leading-[57px] font-normal text-white">200+</label>
+                            <span className="ml-[5px]">слов</span>
+                        </p>
+                    </div>
+
+                    <div className="wrap mt-8 flex">
+                        <p className="font-helvetica mr-[57px] text-sm leading-[14px] font-light whitespace-nowrap text-white">/автор</p>
+                        <p className="ml-5 text-xl text-[35px] leading-[20px] font-normal text-white" style={{ fontFamily: 'Teletactile, sans-serif' }}>
+                            Nigger
+                        </p>
+                    </div>
                 </div>
             </FadeIn>
         </div>
