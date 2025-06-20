@@ -14,7 +14,7 @@ export default function Item({ imgName, naming, onReady, setVideoRef }: IProps) 
     const ref = useRef<HTMLVideoElement | null>(null);
 
     const goTo = () => {
-        navigate(`/Library/StandartInfo/${imgName}`);
+        navigate(`/StandartInfo/${imgName}`);
     };
 
     useEffect(() => {
