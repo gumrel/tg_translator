@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 
-import FadeIn from '../../UI/FadeIn';
+// import FadeIn from '../../UI/FadeIn';
 
 const footerAnimation = {
     initial: { opacity: 0 },
@@ -11,31 +10,25 @@ const footerAnimation = {
 
 export default function Footer() {
     return (
-        <footer className="fixed bottom-5 left-1/2 w-[calc(100%-40px)] max-w-lg -translate-x-1/2 rounded-3xl bg-white/25 px-0 backdrop-blur-md sm:px-5 dark:bg-[#20202380] z-100">
-            <motion.nav aria-label="Footer" className="flex justify-center p-5" {...footerAnimation}>
-                <div className="flex w-full items-center justify-between">
-                    <FadeIn>
-                        <Link to="/Library" className="flex flex-col items-center text-center text-xs font-bold">
-                            <img src="/images/lib.svg" alt="Library" />
-                            Библиотека
-                        </Link>
-                    </FadeIn>
+        <footer className="fixed bottom-0 z-100 w-full rounded-3xl bg-black px-0 sm:px-5">
+            <div aria-label="Footer" className="flex max-h-[82px] justify-center p-5" {...footerAnimation}>
+                <div className="flex w-full items-center justify-center sm:gap-[60px] gap-[45px]">
+                    <Link to="/Library" className="flex max-h-[55px] flex-col items-center text-center sm:text-[16px] text-[12px] font-bold text-[#919191]">
+                        <img src="/images/lib.png" alt="Library"  className='sm:w-[35px] w-[24px]'  />
+                        Библиотека
+                    </Link>
 
-                    <FadeIn>
-                        <Link to="/" className="flex flex-col items-center text-center text-xs font-bold">
-                            <img src="/images/trans.svg" alt="Translator" />
-                            Переводчик
-                        </Link>
-                    </FadeIn>
+                    <Link to="/" className="flex max-h-[55px] flex-col items-center text-center sm:text-[16px] text-[12px] font-bold text-[#919191]">
+                        <img src="/images/trans.png" alt="Translator" className='sm:w-[35px] w-[24px]' />
+                        Переводчик
+                    </Link>
 
-                    <FadeIn>
-                        <Link to="/Masterskaya" className="flex flex-col items-center text-center text-xs font-bold">
-                            <img src="/images/master.svg" alt="Masterskaya" />
-                            Мастерская
-                        </Link>
-                    </FadeIn>
+                    <Link to="/Masterskaya" className="flex max-h-[55px] flex-col items-center text-center sm:text-[16px] text-[12px] font-bold text-[#919191]">
+                        <img src="/images/master.png" alt="Masterskaya" className='sm:w-[35px] w-[24px]' />
+                        Мастерская
+                    </Link>
                 </div>
-            </motion.nav>
+            </div>
         </footer>
     );
 }

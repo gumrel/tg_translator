@@ -19,7 +19,7 @@ import AboutPage from './pages/AboutPage';
 function AppWrapper() {
     const location = useLocation();
     const shouldHideHeader = () => {
-        const noHeaderPatterns = ['/SavedTranslate', '/HistoryTranslate', '/SelectLanguage', '/Library/StandartInfo/:itemId', 'AboutPage'];
+        const noHeaderPatterns = ['/SavedTranslate', '/HistoryTranslate', '/SelectLanguage', '/StandartInfo/:itemId', 'AboutPage'];
         return noHeaderPatterns.some((pattern) => matchPath(pattern, location.pathname));
     };
 
@@ -64,7 +64,7 @@ function AppWrapper() {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/Library" element={<Library />} />
-                    <Route path="/Library/StandartInfo/:itemId" element={<StandartInfo />} />
+                    <Route path="/StandartInfo/:itemId" element={<StandartInfo />} />
 
                     <Route path="/Masterskaya" element={<Masterskaya />} />
                     <Route path="/AboutPage" element={<AboutPage />} />
