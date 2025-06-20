@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react';
 import BaseInput from '../UI/BaseInput';
 import FadeIn from '../UI/FadeIn';
 import Item from '../components/Library/Item';
@@ -9,7 +10,26 @@ export default function Library() {
         { imgName: 'Gopnik', label: 'Русский Гопник' },
         { imgName: 'Zumer1', label: 'Русский Зумер' },
         { imgName: 'Zumer', label: 'HOOD' },
+        { imgName: 'Bot', label: 'кастомный' },
+        { imgName: 'Info', label: 'словарик' },
     ];
+
+    const videoRefs = useRef<HTMLVideoElement[]>([]);
+    const [readyCount, setReadyCount] = useState(0);
+
+    const handleReady = () => setReadyCount((prev) => prev + 1);
+
+useEffect(() => {
+    if (readyCount === icons.length) {
+        videoRefs.current.forEach(video => {
+            if (video) {
+                video.currentTime = 0;
+                video.play().catch(err => console.warn('Video play error:', err));
+            }
+        });
+    }
+}, [readyCount]);
+
 
     return (
         <div className="-mt-30">
@@ -32,7 +52,7 @@ export default function Library() {
 
                     <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-1 md:grid-cols-2">
                         {icons.map((item, index) => (
-                            <Item key={index} imgName={item.imgName} naming={item.label} />
+                            <Item key={index} imgName={item.imgName} onReady={handleReady} setVideoRef={(el: HTMLVideoElement) => (videoRefs.current[index] = el)} naming={item.label} />
                         ))}
                     </div>
                 </div>

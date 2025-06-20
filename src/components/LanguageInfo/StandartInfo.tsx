@@ -11,12 +11,14 @@ export default function StandartInfo() {
         { imgName: 'Gopnik', label: 'Русский Гопник' },
         { imgName: 'Zumer1', label: 'Русский Зумер' },
         { imgName: 'Zumer', label: 'HOOD' },
+        { imgName: 'Bot', label: 'кастомный' },
+        { imgName: 'Info', label: 'словарик' },
     ];
 
     const currentLang = icons.find((item) => item.imgName === itemId);
 
     return (
-        <div className="-mt-20">
+        <div className="-mt-20 ">
             <FadeIn>
                 <div className="w-full">
                     <div className="flex items-center justify-between">
@@ -40,7 +42,7 @@ export default function StandartInfo() {
 
                 <div className="relative mt-8 flex flex-col items-center">
                     <div className="relative z-5 w-full max-w-[231px]" style={{ transform: 'translateY(-10px)' }}>
-                        <video autoPlay loop muted playsInline className="h-auto w-full">
+                        <video autoPlay loop muted playsInline className="h-auto w-full" style={{ background: 'transparent' }}>
                             <source src={`/model/${currentLang?.imgName}.webm`} type="video/webm" />
                             Ваш браузер не поддерживает WebM.
                         </video>
@@ -72,27 +74,50 @@ export default function StandartInfo() {
                 </div>
 
                 <div>
-                    <div className="wrap flex">
-                        <p className="font-helvetica mr-[57px] text-sm leading-[14px] font-light whitespace-nowrap text-white">/о языке</p>
-                        <p className="text-xl leading-[20px] font-normal text-white" style={{ fontFamily: 'Teletactile, sans-serif' }}>
+                    <div className="wrap flex flex-col sm:flex-row">
+                        <p className="font-helvetica mb-2 text-sm leading-[14px] font-light whitespace-nowrap text-white sm:mr-[57px] sm:mb-0">/о языке</p>
+                        <p className="text-base leading-[20px] font-normal text-white sm:text-xl" style={{ fontFamily: 'Teletactile, sans-serif' }}>
                             Язык, соединивший в себе все относительно популярные сленговые слова и фразочки! Язык, соединивший в себе все относительно популярные Язык, соединивший
                             в себе все относительно
                         </p>
                     </div>
 
-                    <div className="wrap mt-8 flex">
-                        <p className="font-helvetica mr-[57px] text-sm leading-[14px] font-light whitespace-nowrap text-white">/словарь</p>
-                        <p className="text-xl text-[35px] leading-[20px] font-normal text-white" style={{ fontFamily: 'Teletactile, sans-serif' }}>
-                            <label className="font-teletactile text-[57px] leading-[57px] font-normal text-white">200+</label>
+                    <div className="wrap mt-6 flex flex-col sm:mt-8 sm:flex-row">
+                        <p className="font-helvetica mb-2 text-sm leading-[14px] font-light whitespace-nowrap text-white sm:mr-[57px] sm:mb-0">/словарь</p>
+                        <p className="text-xl text-[28px] leading-[20px] font-normal text-white sm:text-[35px]" style={{ fontFamily: 'Teletactile, sans-serif' }}>
+                            <label className="font-teletactile text-[40px] leading-[40px] font-normal text-white sm:text-[57px] sm:leading-[57px]">200+</label>
                             <span className="ml-[5px]">слов</span>
                         </p>
                     </div>
 
-                    <div className="wrap mt-8 flex">
-                        <p className="font-helvetica mr-[57px] text-sm leading-[14px] font-light whitespace-nowrap text-white">/автор</p>
-                        <p className="ml-5 text-xl text-[35px] leading-[20px] font-normal text-white" style={{ fontFamily: 'Teletactile, sans-serif' }}>
-                            Nigger
-                        </p>
+                    <div className="wrap mt-6 flex flex-col sm:mt-8 sm:flex-row">
+                        <p className="font-helvetica mb-2 text-sm leading-[14px] font-light whitespace-nowrap text-white sm:mr-[57px] sm:mb-0">/автор</p>
+
+                        <div className="flex flex-1 flex-col sm:flex-row sm:items-center sm:justify-between">
+                            <div className="mb-3 flex items-center sm:mb-0 mr-3">
+                                <p
+                                    className="ml-0 text-xl text-[28px] leading-[20px] font-normal text-white sm:ml-5 sm:text-[35px]"
+                                    style={{ fontFamily: 'Teletactile, sans-serif' }}
+                                >
+                                    Nigger
+                                </p>
+                                <div className="ml-3 flex h-[34px] w-[34px] items-center justify-center overflow-hidden rounded-full bg-white cursor-pointer">
+                                    <img src="/images/jpgImg/tg.jpg" alt="Telegram" className="object-cover" />
+                                </div>
+                            </div>
+
+                            <div className="relative h-12 w-full rounded-[68.75px] bg-white sm:w-80 ">
+                                <div className="flex h-full w-[calc(100%-58px)] items-center justify-between rounded-[68.75px] border border-white bg-black px-2 sm:w-64">
+                                    <p className="text-base font-normal text-white sm:text-xl ml-2 mt-[-3px]">Попробовать</p>
+                                    <div className="h-[30px] w-[30px] overflow-hidden rounded-full bg-white cursor-pointer">
+                                        <img src="/images/jpgImg/link.jpg" alt="Link" className="h-full w-full object-cover" />
+                                    </div>
+                                </div>
+                                <div className="absolute top-1/2 right-5 h-[30px] w-[30px] -translate-y-1/2 transform overflow-hidden rounded-full bg-white cursor-pointer ">
+                                    <img src="/images/jpgImg/repost.jpg" alt="Link" className="h-full w-full object-cover mt-[-1px]" />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </FadeIn>

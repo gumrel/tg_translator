@@ -13,17 +13,24 @@ import { useHistoryStore } from './services/store/useHistoryStore';
 import { useEffect } from 'react';
 import { auth } from './api/auth/auth.api';
 import StandartInfo from './components/LanguageInfo/StandartInfo';
+import './App.css';
+import AboutPage from './pages/AboutPage';
 
 function AppWrapper() {
     const location = useLocation();
     const shouldHideHeader = () => {
-        const noHeaderPatterns = ['/SavedTranslate', '/HistoryTranslate', '/SelectLanguage', '/Library/StandartInfo/:itemId'];
+        const noHeaderPatterns = ['/SavedTranslate', '/HistoryTranslate', '/SelectLanguage', '/Library/StandartInfo/:itemId', 'AboutPage'];
         return noHeaderPatterns.some((pattern) => matchPath(pattern, location.pathname));
     };
 
     const isHomePage = location.pathname === '/';
     const hideHeader = shouldHideHeader();
     const loadHistoryFromStorage = useHistoryStore((state) => state.loadHistoryFromStorage);
+
+    useEffect(() => {
+        const isDarkTheme = location.pathname === '/' || location.pathname.startsWith('/Library');
+        document.body.style.backgroundColor = isDarkTheme ? '#0C0C0C' : '#000000';
+    }, [location.pathname]);
 
     useEffect(() => {
         const doLogin = async () => {
@@ -60,12 +67,13 @@ function AppWrapper() {
                     <Route path="/Library/StandartInfo/:itemId" element={<StandartInfo />} />
 
                     <Route path="/Masterskaya" element={<Masterskaya />} />
+                    <Route path="/AboutPage" element={<AboutPage />} />
+
                     <Route path="/SavedTranslate" element={<SavedTranslate />} />
                     <Route path="/HistoryTranslate" element={<HistoryTranslate />} />
                     <Route path="/SelectLanguage" element={<SelectLanguage />} />
                 </Routes>
             </div>
-
             <Footer />
         </>
     );
