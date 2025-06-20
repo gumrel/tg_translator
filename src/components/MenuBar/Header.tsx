@@ -11,7 +11,7 @@ const headerAnimation = {
 
 export default function Header() {
     return (
-        <header className="flex w-full justify-center">
+        <header className="flex w-full justify-center bg-black">
             <div className="w-full max-w-lg">
                 <motion.nav aria-label="Global" className="flex items-center justify-between p-5" {...headerAnimation}>
                     <div className="flex-1">

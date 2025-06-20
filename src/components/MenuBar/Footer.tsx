@@ -11,7 +11,7 @@ const footerAnimation = {
 
 export default function Footer() {
     return (
-        <footer className="fixed bottom-5 left-1/2 w-[calc(100%-40px)] max-w-lg -translate-x-1/2 rounded-3xl bg-white/25 px-0 backdrop-blur-md sm:px-5 dark:bg-[#20202380]">
+        <footer className="fixed bottom-5 left-1/2 w-[calc(100%-40px)] max-w-lg -translate-x-1/2 rounded-3xl bg-white/25 px-0 backdrop-blur-md sm:px-5 dark:bg-[#20202380] z-100">
             <motion.nav aria-label="Footer" className="flex justify-center p-5" {...footerAnimation}>
                 <div className="flex w-full items-center justify-between">
                     <FadeIn>

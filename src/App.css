@@ -41,7 +41,17 @@
 
     color-scheme: light dark;
     color: rgba(255, 255, 255, 0.87);
-    background-color: #0c0c0c;
+    --bg-primary: #000000;
+    --bg-secondary: #0c0c0c;
+}
+
+body {
+    background-color: var(--bg-primary);
+}
+
+.home-page,
+.library-page {
+    background-color: var(--bg-secondary);
 }
 
 a {
