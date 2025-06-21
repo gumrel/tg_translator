@@ -10,7 +10,7 @@ export default function CustomTextArea() {
     const { leftLanguage, rightLanguage } = useUtilsStore();
 
     const [isLoading, setIsLoading] = useState(false);
-    const [isRecording, setIsRecording] = useState(false);
+    // const [isRecording, setIsRecording] = useState(false);
     const [copied, setCopied] = useState(false);
     const [isLiked, setIsLiked] = useState(false);
 
@@ -91,77 +91,72 @@ export default function CustomTextArea() {
         }
     };
 
-    const handleVoiceInput = () => {
-        const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+    // const handleVoiceInput = () => {
+    //     const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
 
-        if (!SpeechRecognition) {
-            alert('Распознавание речи не поддерживается в этом браузере.');
-            return;
-        }
+    //     if (!SpeechRecognition) {
+    //         alert('Распознавание речи не поддерживается в этом браузере.');
+    //         return;
+    //     }
 
-        const recognition = new SpeechRecognition();
-        recognition.lang = 'ru-RU';
-        recognition.interimResults = false;
-        recognition.maxAlternatives = 1;
+    //     const recognition = new SpeechRecognition();
+    //     recognition.lang = 'ru-RU';
+    //     recognition.interimResults = false;
+    //     recognition.maxAlternatives = 1;
 
-        setIsRecording(true);
-        recognition.start();
+    //     setIsRecording(true);
+    //     recognition.start();
 
-        recognition.onresult = (event: any) => {
-            const speechToText = event.results[0][0].transcript;
-            setWordToTranslate(speechToText);
-            debouncedTranslate(speechToText);
-            setIsRecording(false);
-        };
+    //     recognition.onresult = (event: any) => {
+    //         const speechToText = event.results[0][0].transcript;
+    //         setWordToTranslate(speechToText);
+    //         debouncedTranslate(speechToText);
+    //         setIsRecording(false);
+    //     };
 
-        recognition.onerror = (event: any) => {
-            console.error('Ошибка распознавания речи:', event.error);
-            setIsRecording(false);
-        };
+    //     recognition.onerror = (event: any) => {
+    //         console.error('Ошибка распознавания речи:', event.error);
+    //         setIsRecording(false);
+    //     };
 
-        recognition.onend = () => {
-            setIsRecording(false);
-        };
-    };
+    //     recognition.onend = () => {
+    //         setIsRecording(false);
+    //     };
+    // };
 
     return (
-        <div className="flex flex-col gap-4 rounded-3xl bg-[#202020] p-4 backdrop-blur-md">
+        <div className="flex min-h-[351px] flex-col gap-4 rounded-3xl p-4 backdrop-blur-md">
             {copied && (
                 <div className="absolute top-2 left-1/2 z-50 -translate-x-1/2 rounded-xl bg-green-600 px-4 py-2 text-white shadow-lg transition-opacity duration-300">
                     Скопировано!
                 </div>
             )}
 
-            <div className="relative">
-                <textarea
-                    value={wordToTranslate}
-                    onChange={handleChange}
-                    placeholder={isRecording ? 'Говорите...' : 'Введите текст...'}
-                    className="min-h-[130px] w-full resize-none rounded-3xl bg-[#202020] p-4 text-xl text-black outline-none dark:text-white"
-                />
-                {!wordToTranslate.length ? (
-                    <img onClick={handleVoiceInput} className="absolute top-4 right-4 w-7 cursor-pointer" src="/images/miniUI/mic.svg" alt="Микрофон" />
-                ) : null}
-            </div>
+            <div className="flex flex-col gap-4 md:flex-row">
+                <div className="relative flex-1">
+                    <img onClick={handleClear} className="absolute top-4 right-2 w-6 cursor-pointer" src="/images/miniUI/del.png" alt="Очистить" />
 
-            <div className="my-3 h-[1px] w-[95%] self-center bg-[#787878]" />
-
-            <div className="min-h-[130px] rounded-3xl bg-[#202020] p-4 text-xl break-all text-black dark:text-white">
-                {isLoading ? <span className="animate-pulse text-white">Переводим...</span> : translated || <span className="text-zinc-400"></span>}
-            </div>
-
-            <div className="mb-2 flex justify-between px-3">
-                <div className="wrap flex gap-3">
-                    <img onClick={() => handleCopy()} className="w-7 cursor-pointer" src="/images/miniUI/Copy.svg" alt="img" />
-                    {!isLiked ? (
-                        <img onClick={() => likeTranslate()} className="w-7 cursor-pointer" src="/images/miniUI/Like.svg" alt="img" />
-                    ) : (
-                        <img src="/images/Save.svg" alt="" />
-                    )}
-
-                    <img onClick={() => handleSpeak()} className="w-7 cursor-pointer" src="/images/miniUI/Sound.svg" alt="img" />
+                    <textarea
+                        value={wordToTranslate}
+                        onChange={handleChange}
+                        placeholder="Введите текст"
+                        className="min-h-[130px] w-full resize-none rounded-3xl bg-[#0C0C0C] p-4 text-xl text-black outline-none dark:text-white"
+                    />
                 </div>
-                <img onClick={() => handleClear()} className="w-7 cursor-pointer" src="/images/miniUI/Delete.svg" alt="img" />
+
+                <div className="relative min-h-[350px] flex-1 rounded-[29px] bg-black p-4 text-xl break-words text-white">
+                    <div className="absolute top-4 right-4 flex gap-3">
+                        <img onClick={handleCopy} className="w-[22px] cursor-pointer" src="/images/miniUI/Copy.svg" alt="Копировать" />
+                        {!isLiked ? (
+                            <img onClick={likeTranslate} className="w-[22px] cursor-pointer" src="/images/miniUI/Like.svg" alt="Лайк" />
+                        ) : (
+                            <img src="/images/Save.svg" className="w-[22px]" alt="Сохранено" />
+                        )}
+                        <img onClick={handleSpeak} className="w-[22px] cursor-pointer" src="/images/miniUI/Sound.svg" alt="Озвучить" />
+                    </div>
+
+                    {isLoading ? <span className="animate-pulse text-white">Переводим...</span> : translated || <span className="text-zinc-400">Введите текст</span>}
+                </div>
             </div>
         </div>
     );

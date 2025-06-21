@@ -19,17 +19,16 @@ export default function Library() {
 
     const handleReady = () => setReadyCount((prev) => prev + 1);
 
-useEffect(() => {
-    if (readyCount === icons.length) {
-        videoRefs.current.forEach(video => {
-            if (video) {
-                video.currentTime = 0;
-                video.play().catch(err => console.warn('Video play error:', err));
-            }
-        });
-    }
-}, [readyCount]);
-
+    useEffect(() => {
+        if (readyCount === icons.length) {
+            videoRefs.current.forEach((video) => {
+                if (video) {
+                    video.currentTime = 0;
+                    video.play().catch((err) => console.warn('Video play error:', err));
+                }
+            });
+        }
+    }, [readyCount]);
 
     return (
         <div className="-mt-30">
@@ -52,7 +51,13 @@ useEffect(() => {
 
                     <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-1 md:grid-cols-2">
                         {icons.map((item, index) => (
-                            <Item key={index} imgName={item.imgName} onReady={handleReady} setVideoRef={(el: HTMLVideoElement) => (videoRefs.current[index] = el)} naming={item.label} />
+                            <Item
+                                key={index}
+                                imgName={item.imgName}
+                                onReady={handleReady}
+                                setVideoRef={(el: HTMLVideoElement) => (videoRefs.current[index] = el)}
+                                naming={item.label}
+                            />
                         ))}
                     </div>
                 </div>

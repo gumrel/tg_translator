@@ -1,51 +1,48 @@
-import FadeIn from '../UI/FadeIn';
-import BaseButton from '../UI/BaseButton';
-
 import CustomTextArea from '../UI/CustomTextArea';
 import { useUtilsStore } from '../services/store/utilsStore';
 import { Link } from 'react-router-dom';
+import Header from '../components/MenuBar/Header';
 
 export default function Home() {
     const { leftLanguage, rightLanguage, setSelectedLanguage } = useUtilsStore();
 
     return (
         <>
-            <FadeIn>
-                <div className="-mt-24">
-                    <div className="flex flex-wrap items-center justify-center gap-4 sm:justify-between">
-                        <div
-                            // to="/SelectLanguage"
-                            // onClick={() => {
-                            //     setSelectedLanguage(-1);
-                            // }}
-                            className="mb-3 flex min-w-[120px] flex-1 cursor-pointer items-center justify-center rounded-xl bg-[#202020] p-3 text-center text-xl"
-                        >
-                            <p>{leftLanguage}</p>
-                        </div>
+            <div className="-mt-24">
+                <Header></Header>
+            </div>
+            <div>
+                <CustomTextArea />
 
-                        <div className="mb-2 cursor-pointer">
-                            {/* <img onClick={changeLanguage} src="/images/arrow.svg" alt="" /> */}
-                            <img className="w-7" src="/images/arrow-right.svg" alt="arrow" />
-                        </div>
-
-                        <Link
-                            to="/SelectLanguage"
-                            onClick={() => {
-                                setSelectedLanguage(1);
-                            }}
-                            className="mb-3 flex min-w-[120px] flex-1 cursor-pointer items-center justify-center rounded-xl bg-[#202020] p-3 text-center text-xl"
-                        >
-                            <p>{rightLanguage.name}</p>
-                        </Link>
+                <div className="flex flex-wrap items-center justify-center gap-4">
+                    <div
+                        // to="/SelectLanguage"
+                        // onClick={() => {
+                        //     setSelectedLanguage(-1);
+                        // }}
+                        className="mt-0 flex max-w-[200px] flex-1 cursor-pointer items-center justify-center rounded-xl bg-[#000000] p-2 text-center text-xl"
+                    >
+                        <p>{leftLanguage}</p>
                     </div>
 
-                    <CustomTextArea />
-
-                    <div className="mt-5">
-                        <BaseButton>Перевод: {rightLanguage.description}</BaseButton>
+                    <div className="mb-2 cursor-pointer">
+                        {/* <img onClick={changeLanguage} src="/images/arrow.svg" alt="" /> */}
+                        <img className="mt-5 w-7.5" src="/images/change.png" alt="arrow" />
                     </div>
+
+                    <Link
+                        to="/SelectLanguage"
+                        onClick={() => {
+                            setSelectedLanguage(1);
+                        }}
+                        className="mt-0 flex max-w-[200px] flex-1 cursor-pointer items-center justify-center rounded-xl bg-[#000000] p-2 text-center text-xl"
+                    >
+                        <p>{rightLanguage.name}</p>
+                    </Link>
                 </div>
-            </FadeIn>
+
+                {/* <CustomTextArea /> */}
+            </div>
         </>
     );
 }

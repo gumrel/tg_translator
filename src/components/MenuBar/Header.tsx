@@ -11,13 +11,13 @@ const headerAnimation = {
 
 export default function Header() {
     return (
-        <header className="flex w-full justify-center bg-black">
-            <div className="w-full max-w-lg">
-                <motion.nav aria-label="Global" className="flex items-center justify-between p-5" {...headerAnimation}>
+        <header className="flex w-full justify-between">
+            <div className="w-full">
+                <motion.nav aria-label="Global" className="flex items-center justify-between py-5" {...headerAnimation}>
                     <div className="flex-1">
                         <FadeIn>
                             <Link className="!font-bold" to="/">
-                                <img src="/images/SLANGLATE.svg" alt="" />
+                                <img src="/images/SLANGLATE.svg" alt="" style={{ width: '75px', height: '35px' }} />
                             </Link>
                         </FadeIn>
                     </div>

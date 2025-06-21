@@ -19,7 +19,7 @@ import AboutPage from './pages/AboutPage';
 function AppWrapper() {
     const location = useLocation();
     const shouldHideHeader = () => {
-        const noHeaderPatterns = ['/SavedTranslate', '/HistoryTranslate', '/SelectLanguage', '/StandartInfo/:itemId', 'AboutPage'];
+        const noHeaderPatterns = ['/SavedTranslate', '/HistoryTranslate', '/SelectLanguage', '/StandartInfo/:itemId', 'AboutPage', '/'];
         return noHeaderPatterns.some((pattern) => matchPath(pattern, location.pathname));
     };
 
@@ -28,7 +28,8 @@ function AppWrapper() {
     const loadHistoryFromStorage = useHistoryStore((state) => state.loadHistoryFromStorage);
 
     useEffect(() => {
-        const isDarkTheme = location.pathname === '/' || location.pathname.startsWith('/Library');
+        const darkRoutes = ['/', '/SavedTranslate', '/HistoryTranslate', '/SelectLanguage'];
+        const isDarkTheme = darkRoutes.includes(location.pathname) || location.pathname.startsWith('/Library');
         document.body.style.backgroundColor = isDarkTheme ? '#0C0C0C' : '#000000';
     }, [location.pathname]);
 
