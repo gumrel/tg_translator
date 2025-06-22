@@ -4,7 +4,7 @@ import FadeIn from '../UI/FadeIn';
 export default function Masterskaya() {
     const icons = [
         { src: '/images/masterskaya/l1.png', label: 'Русский скуф' },
-        { src: '/images/masterskaya/l2.png', label: 'Аристократ' },
+        { src: '/images/masterskaya/l2.png', label: 'Cударь' },
         { src: '/images/masterskaya/l3.png', label: 'Гопник' },
         { src: '/images/masterskaya/l4.png', label: 'Зумер' },
     ];
@@ -24,7 +24,7 @@ export default function Masterskaya() {
                         <div className="flex w-full items-center justify-between gap-4">
                             <div className="w-full">
                                 <p className="font-helvetica mb-1.5 text-[18px] leading-none font-bold text-white md:text-[22px]">О проекте Slanglate</p>
-                                <p className="font-helvetica mt-2.5 max-w-[185px] text-[12px] leading-none font-normal text-[#9F9F9F] md:text-[14px]">
+                                <p className="font-helvetica mt-2.5 max-w-[185px] text-[12px] leading-[13.92px] font-normal text-[#9F9F9F] md:text-[14px]">
                                     Узнай чуть больше о том, чем ты пользуешься!
                                 </p>
                             </div>
@@ -36,25 +36,25 @@ export default function Masterskaya() {
 
                     <div className="flex max-h-[90px] w-full cursor-pointer overflow-hidden rounded-[19px] bg-[#1C1C1E] p-[18px] sm:max-h-[110px]">
                         <div className="flex w-full items-center justify-between gap-4">
-                            <div className="mt-[-7px] w-full max-w-[328px]">
+                            <div className="w-full max-w-[328px]">
                                 <p className="font-helvetica mb-1.5 text-[18px] leading-none font-bold text-white md:text-[22px]">Создай свой язык</p>
-                                <p className="font-helvetica mt-2.5 text-[12px] leading-none font-normal text-[#9F9F9F] md:text-[14px]">
+                                <p className="font-helvetica mt-2.5 text-[12px] leading-[13.92px] font-normal text-[#9F9F9F] md:text-[14px]">
                                     Да, вот так просто, единственное ограничение — это твоя фантазия
                                 </p>
                             </div>
                             <div className="shrink-0 overflow-hidden">
-                                {/* <img src="/images/masterskaya/ng.svg" alt="" className="h-[90px] object-cover md:h-[93px]" /> */}
-                                <video autoPlay loop muted playsInline className="h-auto w-[88px] md:w-[120px]">
+                                <img src="/images/masterskaya/rob.png" alt="" className="h-auto w-[88px] md:w-[120px]" />
+                                {/* <video autoPlay loop muted playsInline className="h-auto w-[88px] md:w-[120px]">
                                     <source src={`/model/Zumer.webm`} type="video/webm" />
                                     Ваш браузер не поддерживает WebM.
-                                </video>
+                                </video> */}
                                 {/* <img src="/model/Zumer.gif" alt="Зумер" className="h-auto w-[88px] md:w-[120px]" /> */}
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div className="mt-3 flex flex-col gap-4 md:flex-row">
+                <div className="flex flex-col gap-4 md:flex-row">
                     <div className="max-w-[440px]">
                         <p
                             className="font-helvetica mt-4 mb-2 font-normal text-[#9F9F9F]"
@@ -76,10 +76,10 @@ export default function Masterskaya() {
                         </div>
                     </div>
 
-                    <div className="ml-0 md:ml-4">
+                    <div className="mt-0 ml-0 md:mt-4 md:ml-4">
                         <div>
                             <p
-                                className="font-helvetica mt-4 mb-2 font-normal text-[#9F9F9F]"
+                                className="font-helvetica mb-2 font-normal text-[#9F9F9F]"
                                 style={{
                                     fontSize: '22.858px',
                                 }}

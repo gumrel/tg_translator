@@ -7,18 +7,18 @@ export default function StandartInfo() {
 
     const icons = [
         { imgName: 'Skuf', label: 'Русский скуф' },
-        { imgName: 'Elite', label: 'Аристократ' },
+        { imgName: 'Elite', label: 'Русский сударь' },
         { imgName: 'Gopnik', label: 'Русский Гопник' },
         { imgName: 'Zumer1', label: 'Русский Зумер' },
         { imgName: 'Zumer', label: 'HOOD' },
-        { imgName: 'Bot', label: 'кастомный' },
-        { imgName: 'Info', label: 'словарик' },
+        { imgName: 'Bot', label: 'custom' },
+        { imgName: 'Info', label: 'словарь' },
     ];
 
     const currentLang = icons.find((item) => item.imgName === itemId);
 
     return (
-        <div className="-mt-20 ">
+        <div className="-mt-20">
             <FadeIn>
                 <div className="w-full">
                     <div className="flex items-center justify-between">
@@ -82,39 +82,39 @@ export default function StandartInfo() {
                         </p>
                     </div>
 
-                    <div className="wrap mt-6 flex flex-col sm:mt-8 sm:flex-row">
+                    <div className="wrap mt-4 flex flex-col sm:mt-8 sm:flex-row">
                         <p className="font-helvetica mb-2 text-sm leading-[14px] font-light whitespace-nowrap text-white sm:mr-[57px] sm:mb-0">/словарь</p>
                         <p className="text-xl text-[28px] leading-[20px] font-normal text-white sm:text-[35px]" style={{ fontFamily: 'Teletactile, sans-serif' }}>
-                            <label className="font-teletactile text-[40px] leading-[40px] font-normal text-white sm:text-[57px] sm:leading-[57px]">200+</label>
-                            <span className="ml-[5px]">слов</span>
+                            <label className="font-teletactile text-[57px] leading-[40px] font-normal text-white sm:leading-[57px]">200+</label>
+                            <span className="ml-[5px] text-[35px]">слов</span>
                         </p>
                     </div>
 
-                    <div className="wrap mt-6 flex flex-col sm:mt-8 sm:flex-row">
+                    <div className="wrap mt-5 flex flex-col sm:mt-8 sm:flex-row">
                         <p className="font-helvetica mb-2 text-sm leading-[14px] font-light whitespace-nowrap text-white sm:mr-[57px] sm:mb-0">/автор</p>
 
                         <div className="flex flex-1 flex-col sm:flex-row sm:items-center sm:justify-between">
-                            <div className="mb-3 flex items-center sm:mb-0 mr-3">
+                            <div className="mr-3 mb-5 flex items-center sm:mb-0">
                                 <p
-                                    className="ml-0 text-xl text-[28px] leading-[20px] font-normal text-white sm:ml-5 sm:text-[35px]"
+                                    className="ml-0 text-xl text-[35px] leading-[20px] font-normal text-white sm:ml-5 sm:text-[35px]"
                                     style={{ fontFamily: 'Teletactile, sans-serif' }}
                                 >
                                     Nigger
                                 </p>
-                                <div className="ml-3 flex h-[34px] w-[34px] items-center justify-center overflow-hidden rounded-full bg-white cursor-pointer">
+                                <div className="ml-3 flex h-[34px] w-[34px] cursor-pointer items-center justify-center overflow-hidden rounded-full bg-white">
                                     <img src="/images/jpgImg/tg.jpg" alt="Telegram" className="object-cover" />
                                 </div>
                             </div>
 
-                            <div className="relative h-12 w-full rounded-[68.75px] bg-white sm:w-80 ">
+                            <div className="relative h-12 w-full rounded-[68.75px] bg-white sm:w-80">
                                 <div className="flex h-full w-[calc(100%-58px)] items-center justify-between rounded-[68.75px] border border-white bg-black px-2 sm:w-64">
-                                    <p className="text-base font-normal text-white sm:text-xl ml-2 mt-[-3px]">Попробовать</p>
-                                    <div className="h-[30px] w-[30px] overflow-hidden rounded-full bg-white cursor-pointer">
-                                        <img src="/images/jpgImg/link.jpg" alt="Link" className="h-full w-full object-cover" />
+                                    <p className="mt-[-3px] ml-2 text-base font-normal text-white sm:text-xl">Попробовать</p>
+                                    <div className="h-[30px] w-[30px] cursor-pointer overflow-hidden rounded-full bg-white">
+                                        <img src="/images/jpgImg/link.png" alt="Link" className="h-full w-full object-cover" />
                                     </div>
                                 </div>
-                                <div className="absolute top-1/2 right-5 h-[30px] w-[30px] -translate-y-1/2 transform overflow-hidden rounded-full bg-white cursor-pointer ">
-                                    <img src="/images/jpgImg/repost.jpg" alt="Link" className="h-full w-full object-cover mt-[-1px]" />
+                                <div className="absolute top-1/2 right-5 h-[30px] w-[30px] -translate-y-1/2 transform cursor-pointer overflow-hidden rounded-full bg-white">
+                                    <img src="/images/jpgImg/repost.jpg" alt="Link" className="mt-[-1px] h-full w-full object-cover" />
                                 </div>
                             </div>
                         </div>

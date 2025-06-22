@@ -17,7 +17,7 @@ export default function Header() {
                     <div className="flex-1">
                         <FadeIn>
                             <Link className="!font-bold" to="/">
-                                <img src="/images/SLANGLATE.svg" alt="" style={{ width: '75px', height: '35px' }} />
+                                <img src="/images/SLANGLATE.svg" alt="" className="h-[25px] w-[56px] md:h-[35px] md:w-[75px]" />
                             </Link>
                         </FadeIn>
                     </div>

@@ -19,7 +19,7 @@ export default function Footer() {
                     </Link>
 
                     <Link to="/" className="flex max-h-[55px] flex-col items-center text-center text-[12px] font-bold text-[#919191] sm:text-[16px]">
-                        <img src="/images/trans.png" alt="Translator" className="w-[24px] sm:w-[35px]" />
+                        <img src="/images/trans.png" alt="Translator" className="w-[22px] sm:w-[32px]" />
                         Переводчик
                     </Link>
 

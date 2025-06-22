@@ -19,7 +19,7 @@ export default function MainHeader() {
                     <div className="flex-1">
                         <FadeIn>
                             <Link className="!font-bold" to="/">
-                                <img src="/images/SLANGLATE.svg" alt="" style={{ width: '75px', height: '35px' }} />
+                                <img src="/images/SLANGLATE.svg" alt="" className="h-[25px] w-[56px] md:h-[35px] md:w-[75px]" />
                             </Link>
                         </FadeIn>
                     </div>
@@ -39,7 +39,7 @@ export default function MainHeader() {
                                     {userImg?.photo_url ? (
                                         <img src={userImg.photo_url} alt="Avatar" className="h-12 w-12 rounded-full object-cover" />
                                     ) : (
-                                        <div className="h-12 w-12 rounded-full bg-gray-400" />
+                                        <div className="h-[44px] w-[44px] rounded-full bg-gray-400 md:h-[50px] md:w-[50px]" />
                                     )}
                                 </div>
                             </FadeIn>

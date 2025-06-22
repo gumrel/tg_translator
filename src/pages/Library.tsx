@@ -6,12 +6,12 @@ import Item from '../components/Library/Item';
 export default function Library() {
     const icons = [
         { imgName: 'Skuf', label: 'Русский скуф' },
-        { imgName: 'Elite', label: 'Аристократ' },
+        { imgName: 'Elite', label: 'Русский сударь' },
         { imgName: 'Gopnik', label: 'Русский Гопник' },
         { imgName: 'Zumer1', label: 'Русский Зумер' },
         { imgName: 'Zumer', label: 'HOOD' },
-        { imgName: 'Bot', label: 'кастомный' },
-        { imgName: 'Info', label: 'словарик' },
+        { imgName: 'Bot', label: 'custom' },
+        { imgName: 'Info', label: 'словарь' },
     ];
 
     const videoRefs = useRef<HTMLVideoElement[]>([]);
