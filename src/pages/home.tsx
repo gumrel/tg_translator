@@ -20,14 +20,14 @@ export default function Home() {
                         // onClick={() => {
                         //     setSelectedLanguage(-1);
                         // }}
-                        className="mt-0 flex max-w-[200px] flex-1 cursor-pointer items-center justify-center rounded-xl bg-[#000000] p-2 text-center text-xl"
+                        className="mt-0 flex max-w-[200px] flex-1 cursor-pointer items-center justify-center rounded-xl bg-[#0B0B0B] p-2 text-center text-xl"
                     >
                         <p>{leftLanguage}</p>
                     </div>
 
                     <div className="mb-2 cursor-pointer">
                         {/* <img onClick={changeLanguage} src="/images/arrow.svg" alt="" /> */}
-                        <img className="mt-5 w-7.5" src="/images/change.png" alt="arrow" />
+                        <img className="mt-2 w-7.5" src="/images/change.png" alt="arrow" />
                     </div>
 
                     <Link
@@ -35,7 +35,7 @@ export default function Home() {
                         onClick={() => {
                             setSelectedLanguage(1);
                         }}
-                        className="mt-0 flex max-w-[200px] flex-1 cursor-pointer items-center justify-center rounded-xl bg-[#000000] p-2 text-center text-xl"
+                        className="mt-0 flex max-w-[200px] flex-1 cursor-pointer items-center justify-center rounded-xl bg-[#0B0B0B] p-2 text-center text-xl"
                     >
                         <p>{rightLanguage.name}</p>
                     </Link>

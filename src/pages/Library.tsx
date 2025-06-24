@@ -36,12 +36,12 @@ export default function Library() {
                 <div className="mt-6">
                     <BaseInput />
 
-                    <div className="mt-3 overflow-x-auto">
+                    <div className="mt-3">
                         <div className="flex flex-nowrap gap-3 pb-1" style={{ scrollbarWidth: 'none' }}>
-                            {['Стандартные', 'Мастерская', 'Избранное', 'В тренде', 'Новые'].map((label, i) => (
+                            {['Стандартные', 'Пользовательские'].map((label, i) => (
                                 <div
                                     key={i}
-                                    className="font-helvetica flex h-[34px] w-[132px] flex-shrink-0 cursor-pointer items-center justify-center gap-[10px] rounded-[31px] bg-[#171717] px-[15px] py-[15px] text-center text-[12px] leading-[100%] font-normal tracking-[-0.12px] text-white sm:h-[35px] sm:w-[168px]"
+                                    className="font-helvetica flex h-[34px] w-[49.3%] flex-shrink-0 cursor-pointer items-center justify-center gap-[10px] rounded-[31px] bg-[#171717] px-[15px] py-[20px] text-center text-[14px] leading-[100%] font-normal tracking-[-0.12px] text-white sm:h-[35px]"
                                 >
                                     {label}
                                 </div>

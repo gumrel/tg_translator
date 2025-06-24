@@ -125,7 +125,7 @@ export default function CustomTextArea() {
     // };
 
     return (
-        <div className="flex min-h-[351px] flex-col gap-4 rounded-3xl p-4 backdrop-blur-md">
+        <div className="flex min-h-[351px] flex-col gap-4 rounded-3xl pt-4 pb-4 backdrop-blur-md">
             {copied && (
                 <div className="absolute top-2 left-1/2 z-50 -translate-x-1/2 rounded-xl bg-green-600 px-4 py-2 text-white shadow-lg transition-opacity duration-300">
                     Скопировано!
@@ -146,11 +146,11 @@ export default function CustomTextArea() {
                         value={wordToTranslate}
                         onChange={handleChange}
                         placeholder="Введите текст"
-                        className="mt-8 h-[130px] w-full resize-none rounded-3xl bg-[#0C0C0C] p-4 text-xl text-black outline-none md:h-[351px] dark:text-white"
+                        className="mt-11 max-h-[300px] min-h-[190px] w-full resize-none rounded-3xl bg-[#000] pt-[6px] pl-[17px] text-xl text-black outline-none md:h-[351px] dark:text-white"
                     />
                 </div>
 
-                <div className="relative min-h-[350px] flex-1 rounded-[29px] bg-black p-4 text-xl break-words text-white">
+                <div className="relative min-h-[350px] flex-1 rounded-[29px] border-1 bg-black p-4 text-xl break-words text-white">
                     <div className="absolute top-4 right-4 left-3 flex items-center justify-between">
                         <div className="flex">
                             <img src="/images/somexz.png" className="w-[24px]" alt="" />

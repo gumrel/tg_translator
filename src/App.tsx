@@ -30,7 +30,7 @@ function AppWrapper() {
     useEffect(() => {
         const darkRoutes = ['/', '/SavedTranslate', '/HistoryTranslate', '/SelectLanguage'];
         const isDarkTheme = darkRoutes.includes(location.pathname) || location.pathname.startsWith('/Library');
-        document.body.style.backgroundColor = isDarkTheme ? '#0C0C0C' : '#000000';
+        document.body.style.backgroundColor = isDarkTheme ? '#000000' : '#000000';
     }, [location.pathname]);
 
     useEffect(() => {
