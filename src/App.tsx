@@ -10,20 +10,36 @@ import HistoryTranslate from './pages/HistoryTranslate';
 import MainHeader from './components/MenuBar/MainHeader';
 import SelectLanguage from './pages/SelectLanguage';
 import { useHistoryStore } from './services/store/useHistoryStore';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { auth } from './api/auth/auth.api';
 import StandartInfo from './components/LanguageInfo/StandartInfo';
 import './App.css';
 import AboutPage from './pages/AboutPage';
+import TranslatePanel from './UI/TranslatePanel';
 
 function AppWrapper() {
     const location = useLocation();
+    const [sidebarOpen, setSidebarOpen] = useState(false);
+    const [isWideScreen, setIsWideScreen] = useState(window.innerWidth >= 1280);
+
+    const isHomePage = location.pathname === '/';
+
+    const showToolbar = isHomePage && isWideScreen;
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsWideScreen(window.innerWidth >= 1280);
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     const shouldHideHeader = () => {
-        const noHeaderPatterns = ['/SavedTranslate', '/HistoryTranslate', '/SelectLanguage', '/StandartInfo/:itemId', 'AboutPage', '/'];
+        const noHeaderPatterns = ['/', '/SavedTranslate', '/HistoryTranslate', '/SelectLanguage', '/StandartInfo/:itemId', '/AboutPage'];
         return noHeaderPatterns.some((pattern) => matchPath(pattern, location.pathname));
     };
 
-    const isHomePage = location.pathname === '/';
     const hideHeader = shouldHideHeader();
     const loadHistoryFromStorage = useHistoryStore((state) => state.loadHistoryFromStorage);
 
@@ -37,14 +53,12 @@ function AppWrapper() {
         const doLogin = async () => {
             try {
                 const initData = window.Telegram?.WebApp?.initData;
-
                 if (!initData) {
                     console.error('tg mini app only');
                     return;
                 }
 
                 const userData = await auth({ initData });
-
                 console.log(userData.user);
             } catch (error) {
                 console.error(error);
@@ -61,20 +75,37 @@ function AppWrapper() {
         <>
             {!hideHeader && (isHomePage ? <Header /> : <MainHeader />)}
 
-            <div className="mx-auto mt-20 mb-30 p-5" style={{ maxWidth: '930px' }}>
+            {showToolbar && (
+                <>
+                    {sidebarOpen && <TranslatePanel />}
+
+                    {!sidebarOpen && (
+                        <button onClick={() => setSidebarOpen(true)} className="-1 fixed right-0 z-40 rounded-l-xl bg-[#0B0B0B] px-4 py-2 text-white shadow-lg">
+                            ≡
+                        </button>
+                    )}
+                </>
+            )}
+
+            <div
+                className="mx-auto mt-20 mb-30 p-5 transition-all duration-300"
+                style={{
+                    maxWidth: '930px',
+                    transform: showToolbar && sidebarOpen ? 'translateX(-10rem)' : 'translateX(0)',
+                }}
+            >
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/Library" element={<Library />} />
                     <Route path="/StandartInfo/:itemId" element={<StandartInfo />} />
-
                     <Route path="/Masterskaya" element={<Masterskaya />} />
                     <Route path="/AboutPage" element={<AboutPage />} />
-
                     <Route path="/SavedTranslate" element={<SavedTranslate />} />
                     <Route path="/HistoryTranslate" element={<HistoryTranslate />} />
                     <Route path="/SelectLanguage" element={<SelectLanguage />} />
                 </Routes>
             </div>
+
             <Footer />
         </>
     );

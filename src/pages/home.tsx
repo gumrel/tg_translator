@@ -15,13 +15,7 @@ export default function Home() {
                 <CustomTextArea />
 
                 <div className="flex flex-wrap items-center justify-center gap-4">
-                    <div
-                        // to="/SelectLanguage"
-                        // onClick={() => {
-                        //     setSelectedLanguage(-1);
-                        // }}
-                        className="mt-0 flex max-w-[200px] flex-1 cursor-pointer items-center justify-center rounded-xl bg-[#0B0B0B] p-2 text-center text-xl"
-                    >
+                    <div className="mt-0 flex max-w-[200px] flex-1 cursor-pointer items-center justify-center rounded-xl bg-[#0B0B0B] p-2 text-center text-xl">
                         <p>{leftLanguage}</p>
                     </div>
 

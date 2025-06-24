@@ -134,10 +134,10 @@ export default function CustomTextArea() {
 
             <div className="flex flex-col gap-4 md:flex-row">
                 <div className="relative flex-1">
-                    <div className="absolute top-4 right-4 left-3 flex items-center justify-between">
+                    <div className="absolute top-4 right-4 left-0 flex items-center justify-between">
                         <div className="flex">
-                            <img src="/images/somexz.png" className="w-[24px]" alt="" />
-                            <div className="mt-1.5 font-['Helvetica'] text-base leading-3 font-light text-white">{leftLanguage}</div>
+                            <img src="/images/somexz.png" className="mt-1 w-[24px]" alt="" />
+                            <div className="mt-2.5 font-['Helvetica'] text-base leading-3 font-light text-white">{leftLanguage}</div>
                         </div>{' '}
                         <img onClick={handleClear} className="w-6 cursor-pointer" src="/images/miniUI/del.png" alt="Очистить" />
                     </div>
@@ -146,12 +146,12 @@ export default function CustomTextArea() {
                         value={wordToTranslate}
                         onChange={handleChange}
                         placeholder="Введите текст"
-                        className="mt-11 max-h-[300px] min-h-[190px] w-full resize-none rounded-3xl bg-[#000] pt-[6px] pl-[17px] text-xl text-black outline-none md:h-[351px] dark:text-white"
+                        className="mt-11 min-h-[190px] w-full resize-none bg-[#000] pt-[6px] pl-1.5 text-xl text-black outline-none md:h-[301px] dark:text-white"
                     />
                 </div>
 
-                <div className="relative min-h-[350px] flex-1 rounded-[29px] border-1 bg-black p-4 text-xl break-words text-white">
-                    <div className="absolute top-4 right-4 left-3 flex items-center justify-between">
+                <div className="relative max-h-[350px] min-h-[350px] flex-1 overflow-y-auto rounded-[39px] border-1 bg-black p-4 text-xl break-words text-white">
+                    <div className="absolute top-5 right-5 left-4 flex items-center justify-between">
                         <div className="flex">
                             <img src="/images/somexz.png" className="w-[24px]" alt="" />
                             <div className="mt-1.5 font-['Helvetica'] text-base leading-3 font-light text-white">{rightLanguage.name}</div>

@@ -13,7 +13,7 @@ export default function Masterskaya() {
         { src: '/images/masterskaya/r1.png', label: 'Мои языки' },
         { src: '/images/masterskaya/r2.png', label: 'Рекомендуем' },
         { src: '/images/masterskaya/r3.png', label: 'Контакты' },
-        { src: '', label: '' },
+        { src: '/', label: '' },
     ];
 
     return (
