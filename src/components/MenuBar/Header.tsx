@@ -1,7 +1,8 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 import FadeIn from '../../UI/FadeIn';
+import { useUtilsStore } from '../../services/store/utilsStore';
 
 const headerAnimation = {
     initial: { opacity: 0 },
@@ -10,6 +11,19 @@ const headerAnimation = {
 };
 
 export default function Header() {
+    const { setSidebarOpen, setView } = useUtilsStore();
+    const navigate = useNavigate();
+
+    const handleClick = (e: React.MouseEvent, query: 'history' | 'likes', route: string) => {
+        if (window.innerWidth > 1280) {
+            e.preventDefault();
+            setSidebarOpen(true);
+            setView(query);
+        } else {
+            navigate(route);
+        }
+    };
+
     return (
         <header className="flex w-full justify-between">
             <div className="w-full">
@@ -24,13 +38,13 @@ export default function Header() {
 
                     <div className="flex gap-x-4">
                         <FadeIn>
-                            <Link to="/HistoryTranslate">
+                            <Link to="/HistoryTranslate" onClick={(e) => handleClick(e, 'history', '/HistoryTranslate')}>
                                 <img className="cursor-pointer" src="/images/History.svg" alt="" />
                             </Link>
                         </FadeIn>
 
                         <FadeIn>
-                            <Link to="/SavedTranslate">
+                            <Link to="/SavedTranslate" onClick={(e) => handleClick(e, 'likes', '/SavedTranslate')}>
                                 <img className="cursor-pointer" src="/images/Save.svg" alt="" />
                             </Link>
                         </FadeIn>

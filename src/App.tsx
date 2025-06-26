@@ -16,10 +16,11 @@ import StandartInfo from './components/LanguageInfo/StandartInfo';
 import './App.css';
 import AboutPage from './pages/AboutPage';
 import TranslatePanel from './UI/TranslatePanel';
+import { useUtilsStore } from './services/store/utilsStore';
 
 function AppWrapper() {
     const location = useLocation();
-    const [sidebarOpen, setSidebarOpen] = useState(false);
+    const { sidebarOpen } = useUtilsStore();
     const [isWideScreen, setIsWideScreen] = useState(window.innerWidth >= 1280);
 
     const isHomePage = location.pathname === '/';
@@ -75,17 +76,7 @@ function AppWrapper() {
         <>
             {!hideHeader && (isHomePage ? <Header /> : <MainHeader />)}
 
-            {showToolbar && (
-                <>
-                    {sidebarOpen && <TranslatePanel />}
-
-                    {!sidebarOpen && (
-                        <button onClick={() => setSidebarOpen(true)} className="-1 fixed right-0 z-40 rounded-l-xl bg-[#0B0B0B] px-4 py-2 text-white shadow-lg">
-                            ≡
-                        </button>
-                    )}
-                </>
-            )}
+            {showToolbar && <>{sidebarOpen && <TranslatePanel />}</>}
 
             <div
                 className="mx-auto mt-20 mb-30 p-5 transition-all duration-300"
