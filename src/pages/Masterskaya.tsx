@@ -3,7 +3,7 @@ import FadeIn from '../UI/FadeIn';
 
 export default function Masterskaya() {
     const icons = [
-        { src: '/images/masterskaya/l1.png', label: 'Cкуф' },
+        { src: '/images/masterskaya/l1.png', label: 'Скуф' },
         { src: '/images/masterskaya/l2.png', label: 'Cударь' },
         { src: '/images/masterskaya/l3.png', label: 'Гопник' },
         { src: '/images/masterskaya/l4.png', label: 'Зумер' },
@@ -68,7 +68,7 @@ export default function Masterskaya() {
                         <div className="m-auto flex justify-between gap-0 md:gap-10">
                             {icons.map(({ src, label }) => (
                                 <div key={label} className="flex cursor-pointer flex-col items-center text-center">
-                                    <div className="flex h-[75.448px] w-[76.928px] shrink-0 rounded-[17.416px] bg-[#0B0B0B] max-[440px]:h-[59px] max-[440px]:w-[60px]">
+                                    <div className="flex h-[75.448px] w-[76.928px] shrink-0 rounded-[17.416px] bg-[#0B0B0B] max-[440px]:h-[59px] max-[440px]:w-[61px]">
                                         <img src={src} alt={label} className="m-auto w-16 max-[440px]:h-[34px] max-[440px]:w-[45px]" />
                                     </div>
                                     <p className="mt-2 text-center font-['Helvetica'] text-sm font-normal text-white max-[440px]:text-xs">{label}</p>
@@ -91,11 +91,11 @@ export default function Masterskaya() {
                                 {iconsRight.map(({ src, label }, index) => (
                                     <div key={label} className="flex cursor-pointer flex-col items-center text-center">
                                         <div
-                                            className={`flex h-[75.448px] w-[76.928px] shrink-0 rounded-[17.416px] ${index === 3 ? 'opacity-0' : ''} bg-[#0B0B0B] max-[440px]:h-[59px] max-[440px]:w-[60px]`}
+                                            className={`flex h-[75.448px] w-[76.928px] shrink-0 rounded-[17.416px] ${index === 3 ? 'opacity-0' : ''} bg-[#0B0B0B] max-[440px]:h-[59px] max-[440px]:w-[61px]`}
                                         >
                                             <img src={src} alt="" className="m-auto w-16 max-[440px]:h-[50px] max-[440px]:w-[50px]" />
                                         </div>
-                                        <p className="mt-2 text-center font-['Helvetica'] text-sm font-normal text-white max-[440px]:text-xs">{label}</p>
+                                        <p className="mt-2 text-center font-['Helvetica'] text-sm font-normal text-white max-[440px]:text-[11px]">{label}</p>
                                     </div>
                                 ))}
                             </div>

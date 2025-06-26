@@ -33,8 +33,84 @@ export default function Item({ imgName, naming, onReady, setVideoRef }: IProps) 
 
     return (
         <div>
+            <style>
+                {`
+                    .naming-text {
+                        color: white;
+                        font-size: 38px;
+                        font-family: Helvetica;
+                        font-weight: 700;
+                        line-height: 32px;
+                        word-wrap: break-word;
+                        text-transform: uppercase;
+                        max-width: 270px;
+                    }
+
+                    .h-text {
+                            min-height: 172px
+                        }
+
+                    @media (max-width: 390px) {
+                        .naming-text {
+                            font-size: 34px;
+                        }
+                    }
+
+                    @media (max-width: 390px) {
+                        .video-size {
+                            width: 110px !important;
+                        }
+                    }
+
+                    @media (max-width: 390px) {
+                        .h-text {
+                            min-height: 162px
+                        }
+                    }
+
+                    @media (max-width: 350px) {
+                        .naming-text {
+                            font-size: 29px;
+                            max-width: 190px;
+                            transform: translateY(-12px);
+                        }
+                    }
+
+                    @media (max-width: 350px) {
+                        .video-size {
+                            width: 97px !important;
+                        }
+                    }
+
+                    @media (max-width: 350px) {
+                        .h-text {
+                            min-height: 144px
+                        }
+                    }
+
+                    @media (max-width: 330px) {
+                        .naming-text {
+                            font-size: 24px;
+                            max-width: 160px;
+                            transform: translateY(-16px);
+                        }
+                    }
+
+                    @media (max-width: 330px) {
+                        .video-size {
+                            width: 87px !important;
+                        }
+                    }
+
+                    @media (max-width: 330px) {
+                        .h-text {
+                            min-height: 134px
+                        }
+                    }
+                `}
+            </style>
             <FadeIn>
-                <div onClick={goTo} className="relative flex min-h-[172px] w-full cursor-pointer flex-col overflow-hidden rounded-2xl border-1 bg-black p-5 text-white md:flex-row">
+                <div onClick={goTo} className="h-text relative flex w-full cursor-pointer flex-col overflow-hidden rounded-2xl border-1 bg-black p-5 text-white md:flex-row">
                     <div className="pointer-events-none absolute top-1/3 right-0 z-0 mt-3 mr-3 -translate-y-1/2">
                         <video
                             ref={ref}
@@ -43,25 +119,12 @@ export default function Item({ imgName, naming, onReady, setVideoRef }: IProps) 
                             loop
                             preload="auto"
                             playsInline
-                            style={{ width: '128px', height: 'auto', background: 'transparent' }}
+                            className="h-auto w-[128px] bg-transparent sm:w-[128px] [@media(max-width:390px)]:w-[110px]"
                         />
                     </div>
 
                     <div className="relative z-10 mt-6 flex flex-col">
-                        <p
-                            style={{
-                                color: 'white',
-                                fontSize: 38,
-                                fontFamily: 'Helvetica',
-                                fontWeight: '700',
-                                lineHeight: '32px',
-                                wordWrap: 'break-word',
-                                textTransform: 'uppercase',
-                                maxWidth: '270px',
-                            }}
-                        >
-                            {naming}
-                        </p>
+                        <p className="naming-text">{naming}</p>
                     </div>
 
                     <div className="absolute right-5 bottom-5 left-5">
