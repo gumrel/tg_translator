@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 
 import FadeIn from '../../UI/FadeIn';
 import { useUtilsStore } from '../../services/store/utilsStore';
+import { useState } from 'react';
 
 const headerAnimation = {
     initial: { opacity: 0 },
@@ -13,6 +14,8 @@ const headerAnimation = {
 export default function Header() {
     const { setSidebarOpen, setView } = useUtilsStore();
     const navigate = useNavigate();
+
+    const [isMobile] = useState(window.innerWidth < 768);
 
     const handleClick = (e: React.MouseEvent, query: 'history' | 'likes', route: string) => {
         if (window.innerWidth > 1280) {
@@ -25,7 +28,7 @@ export default function Header() {
     };
 
     return (
-        <header className="flex w-full justify-between">
+        <header className="flex w-full justify-between" style={isMobile ? { padding: '20px' } : {}}>
             <div className="w-full">
                 <motion.nav aria-label="Global" className="flex items-center justify-between py-5" {...headerAnimation}>
                     <div className="flex-1">

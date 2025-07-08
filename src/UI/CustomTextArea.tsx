@@ -14,6 +14,8 @@ export default function CustomTextArea() {
     const [copied, setCopied] = useState(false);
     const [isLiked, setIsLiked] = useState(false);
 
+    const [isMobile] = useState(window.innerWidth < 768);
+
     const debouncedTranslate = useCallback(
         debounce((text: string) => {
             setIsLiked(false);
@@ -133,7 +135,7 @@ export default function CustomTextArea() {
             )}
 
             <div className="flex flex-col gap-4 md:flex-row">
-                <div className="relative flex-1">
+                <div className="relative flex-1" style={isMobile ? { margin: '20px' } : {}}>
                     <div className="absolute top-4 right-4 left-0 flex items-center justify-between">
                         <div className="flex">
                             <img src="/images/somexz.png" className="mt-1 w-[24px]" alt="" />

@@ -21,15 +21,16 @@ import { useUtilsStore } from './services/store/utilsStore';
 function AppWrapper() {
     const location = useLocation();
     const { sidebarOpen } = useUtilsStore();
-    const [isWideScreen, setIsWideScreen] = useState(window.innerWidth >= 1280);
+    const [isWideScreen, setIsWideScreen] = useState(window.innerWidth >= 768);
 
     const isHomePage = location.pathname === '/';
+    const isNarrowScreen = window.innerWidth > 768;
 
     const showToolbar = isHomePage && isWideScreen;
 
     useEffect(() => {
         const handleResize = () => {
-            setIsWideScreen(window.innerWidth >= 1280);
+            setIsWideScreen(window.innerWidth >= 768);
         };
 
         window.addEventListener('resize', handleResize);
@@ -72,6 +73,8 @@ function AppWrapper() {
         loadHistoryFromStorage();
     }, []);
 
+    const shouldApplyPadding = !isHomePage || (isHomePage && isNarrowScreen);
+
     return (
         <>
             {!hideHeader && (isHomePage ? <Header /> : <MainHeader />)}
@@ -79,7 +82,7 @@ function AppWrapper() {
             {showToolbar && <>{sidebarOpen && <TranslatePanel />}</>}
 
             <div
-                className="mx-auto mt-20 mb-30 p-5 transition-all duration-300"
+                className={`mx-auto mt-20 mb-30 transition-all duration-300 ${shouldApplyPadding ? 'p-5' : ''}`}
                 style={{
                     maxWidth: '930px',
                     transform: showToolbar && sidebarOpen ? 'translateX(-10rem)' : 'translateX(0)',

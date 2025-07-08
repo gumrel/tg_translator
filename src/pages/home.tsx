@@ -15,7 +15,7 @@ export default function Home() {
                 <CustomTextArea />
 
                 <div className="flex flex-wrap items-center justify-center gap-4">
-                    <div className="mt-0 flex max-w-[200px] flex-1 cursor-pointer items-center justify-center rounded-xl bg-[#0B0B0B] p-2 text-center text-xl">
+                    <div className="mt-0 flex max-w-[200px] flex-1 cursor-pointer items-center justify-center rounded-xl bg-[#000000] p-2 text-center text-xl md:bg-[#0B0B0B]">
                         <p>{leftLanguage}</p>
                     </div>
 
@@ -29,7 +29,7 @@ export default function Home() {
                         onClick={() => {
                             setSelectedLanguage(1);
                         }}
-                        className="mt-0 flex max-w-[200px] flex-1 cursor-pointer items-center justify-center rounded-xl bg-[#0B0B0B] p-2 text-center text-xl"
+                        className="mt-0 flex max-w-[200px] flex-1 cursor-pointer items-center justify-center rounded-xl bg-[#000000] p-2 text-center text-xl md:bg-[#0B0B0B]"
                     >
                         <p>{rightLanguage.name}</p>
                     </Link>
