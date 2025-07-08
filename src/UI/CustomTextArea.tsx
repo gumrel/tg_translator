@@ -134,9 +134,10 @@ export default function CustomTextArea() {
                 </div>
             )}
 
-            <div className="flex flex-col gap-4 md:flex-row">
+            <div className="flex flex-col gap-4 md:flex-row" style={isMobile ? { marginTop: '-60px' } : {}}>
                 <div className="relative flex-1" style={isMobile ? { margin: '20px' } : {}}>
-                    <div className="absolute top-4 right-4 left-0 flex items-center justify-between">
+                    {/* <div className="absolute top-4 right-4 left-0 flex items-center justify-between"> */}
+                    <div className="absolute top-4 left-0 flex items-center justify-between" style={{ right: isMobile ? '0' : '1rem' }}>
                         <div className="flex">
                             <img src="/images/somexz.png" className="mt-1 w-[24px]" alt="" />
                             <div className="mt-2.5 font-['Helvetica'] text-base leading-3 font-light text-white">{leftLanguage}</div>
